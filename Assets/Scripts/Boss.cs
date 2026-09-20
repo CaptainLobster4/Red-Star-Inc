@@ -9,9 +9,12 @@ public enum BossType
 public class Boss : MonoBehaviour
 {
     public BossType bossType;
-    //Ask Darish how long this should be
-    [Tooltip("Ask Darish how long this should be")]
+
+    [Tooltip("Seconds the player has to shoot out this boss's target before it destroys the player's target. No hard-set value yet - tune per boss/level in the Inspector.")]
     public float fightDuration = 30f;
+
+    [Header("Collectible Reward")]
+    public CollectibleData maskReward;
 
     [HideInInspector]
     public float timeRemaining;
@@ -20,6 +23,10 @@ public class Boss : MonoBehaviour
     {
         timeRemaining = fightDuration;
     }
+
+    // Called every frame by GameManager while this boss fight is active
+    // (kept here rather than in Boss.Update() so GameManager stays the single
+    // place that decides when the fight is running - see GameManager.Update)
     public void TickTimer(float deltaTime)
     {
         timeRemaining -= deltaTime;
