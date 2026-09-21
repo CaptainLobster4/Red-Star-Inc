@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Image fillImage;
 
     [HideInInspector]
-    public float side1Amount = 16f;
+    public float side1Amount = 40f;
     [HideInInspector]
     public float side2Amount = 16f;
     [HideInInspector]

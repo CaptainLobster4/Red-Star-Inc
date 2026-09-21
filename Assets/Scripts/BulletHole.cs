@@ -3,78 +3,44 @@ using UnityEngine.Assemblies;
 
 public class BulletHole : MonoBehaviour
 {
-    private GameObject side1;
-    private GameObject side2;
-    private GameObject side3;
 
+    public GameObject TargetArea;
+    
+    // gamemanager script
     private GameManager gameManager;
 
+    private float shapeAmount = 40f;
 
     private void Awake()
     {
-        side1 = GameObject.Find("Side1");
-        side2 = GameObject.Find("Side2");
-        side3 = GameObject.Find("Side3");
 
+        TargetArea = GameObject.Find("TriangleArea");
 
+        // find and get gamemanager script
         GameObject targetObj = GameObject.FindGameObjectWithTag("MainCamera");
         if (targetObj != null)
         {
             gameManager = targetObj.GetComponent<GameManager>();
         }
 
-
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.name == "Side1")
+        // when this object collides with the target area, decreases amount required to shoot out the shape 
+        //      and updates progress bar
+        if (collision.gameObject == TargetArea)
         {
-            Debug.Log("collided with side1,, amnt left is " + gameManager.side1Amount);
+            Debug.Log("collided with shape,, amnt left is " + shapeAmount);
 
-            if (gameManager.side1Amount > 0f)
+            if (shapeAmount > 0f)
             {
-                gameManager.UpdateProgress(0.022f);
-                gameManager.side1Amount = gameManager.DecreaseSideAmount(gameManager.side1Amount);
+                gameManager.UpdateProgress(0.025f);
+                shapeAmount = gameManager.DecreaseSideAmount(shapeAmount);
             }
         }
-
-        if (collision.gameObject.name == "Side2")
-        {
-            Debug.Log("collided with side2,, amnt left is " + gameManager.side2Amount);
-
-            if (gameManager.side2Amount > 0f)
-            {
-                gameManager.UpdateProgress(0.022f);
-                gameManager.side2Amount = gameManager.DecreaseSideAmount(gameManager.side2Amount);
-            }
-        }
-
-        if (collision.gameObject.name == "Side3")
-        {
-            Debug.Log("collided with side 3,, amnt left is " + gameManager.side3Amount);
-
-            if (gameManager.side3Amount > 0f)
-            {
-                gameManager.UpdateProgress(0.022f);
-                gameManager.side3Amount = gameManager.DecreaseSideAmount(gameManager.side3Amount);
-            }
-        }
-
 
     }
 
-
-
-
-
-    void Update()
-    {
-        
-
-
-
-    }
 }
