@@ -21,8 +21,6 @@ public class PlayerCharacter : MonoBehaviour
         interactAction = inputActions.FindAction("Tap");
         positionAction = inputActions.FindAction("Position");
 
-
-
     }
 
 
@@ -31,12 +29,9 @@ public class PlayerCharacter : MonoBehaviour
         // Starting health
     }
 
-
     void Update()
     {
         // Decrease health over time in bosss fights
-
-
         if (interactAction.triggered)
         {
             tapPosition = Camera.main.ScreenToWorldPoint(positionAction.ReadValue<Vector2>());
@@ -46,7 +41,6 @@ public class PlayerCharacter : MonoBehaviour
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
 
             }
-
         }
     }
 }

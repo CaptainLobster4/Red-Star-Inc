@@ -4,12 +4,15 @@ using UnityEngine.Assemblies;
 public class BulletHole : MonoBehaviour
 {
 
+    // area around the actual shape that bullets count in. should be a child of shape
     public GameObject TargetArea;
     
     // gamemanager script
     private GameManager gameManager;
 
-    private float shapeAmount = 40f;
+    // amount of bullets needed to cut out shape (should be turned into a percentage?)
+    //      also should be called from gamemanager
+    //private float shapeAmount = 40f;
 
     private void Awake()
     {
@@ -27,18 +30,18 @@ public class BulletHole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         // when this object collides with the target area, decreases amount required to shoot out the shape 
         //      and updates progress bar
         if (collision.gameObject == TargetArea)
         {
-            Debug.Log("collided with shape,, amnt left is " + shapeAmount);
+            Debug.Log("collided with shape,, amnt left is " + gameManager.shapeAmount);
 
-            if (shapeAmount > 0f)
-            {
+            //if (gameManager.shapeAmount > 0f)
+            //{
                 gameManager.UpdateProgress(0.025f);
-                shapeAmount = gameManager.DecreaseSideAmount(shapeAmount);
-            }
+                gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
+            //}
         }
 
     }

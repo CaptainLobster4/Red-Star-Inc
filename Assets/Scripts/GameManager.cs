@@ -7,20 +7,19 @@ using UnityEngine.UI;
 // UI tracking (tickets, target progress, current equipped gun, current level, and collectibles)
 public class GameManager : MonoBehaviour
 {
+    // progress bar fill
     public Image fillImage;
 
-    [HideInInspector]
-    public float side1Amount = 40f;
-    [HideInInspector]
-    public float side2Amount = 16f;
-    [HideInInspector]
-    public float side3Amount = 16f;
-
+    // UI text assignments
     public TextMeshProUGUI winText;
     public TextMeshProUGUI loseText;
     public TextMeshProUGUI BulletText;
 
+    // amount of bullets
     public int bulletCount;
+
+    // amount of bullets needed to cut out entire shape
+    public float shapeAmount = 30f;
 
 
     private PlayerCharacter playerCharacter;
