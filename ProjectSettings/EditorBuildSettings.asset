@@ -6,7 +6,25 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: f5591fba3fa18534ab5943eb57742374
+  - enabled: 0
     path: Assets/Scenes/Game Scene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Kaylee_Dev.unity
+    guid: b4b2c18977852094f9dd5c3d5e2c4c6a
+  - enabled: 1
+    path: Assets/Scenes/Win Screen.unity
+    guid: 56421d9eb5fe9554e8cd6f074ec32bfb
+  - enabled: 1
+    path: Assets/Scenes/Shop Screen.unity
+    guid: 9b509bdda2d6d994abbdef1998fb41a7
+  - enabled: 1
+    path: Assets/Scenes/Collection Screen.unity
+    guid: c843f1638d4947946a9cca50c0f5f0c9
+  - enabled: 1
+    path: Assets/Scenes/Tyler_BossLevel.unity
+    guid: a13569bd2c982824e9dce2ad39a3b94e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
