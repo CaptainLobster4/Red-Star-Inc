@@ -13,9 +13,10 @@ public class GameManager : MonoBehaviour
     public Image fillImage;
 
     // UI text assignments
-    public TextMeshProUGUI winText;
-    public TextMeshProUGUI loseText;
+    public GameObject winMenu;
+    public GameObject loseMenu;
     public TextMeshProUGUI BulletText;
+    public GameObject DimScreen;
 
     // amount of bullets
     public int bulletCount;
@@ -36,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     private PlayerCharacter playerCharacter;
     private bool levelOver = false;
+
+    public bool temp = false;
+    public bool temp2 = false;
+
 
 
     public void UpdateProgress(float newProgress)
@@ -66,6 +71,11 @@ public class GameManager : MonoBehaviour
         // equipped gun
         // Starting Health
 
+        DimScreen.gameObject.SetActive(false);
+        loseMenu.gameObject.SetActive(false);
+        winMenu.gameObject.SetActive(false);
+
+
 
         GameObject targetObj = GameObject.FindGameObjectWithTag("MainCamera");
         if (targetObj != null)
@@ -93,7 +103,7 @@ public class GameManager : MonoBehaviour
         if (fillImage.fillAmount >= 1f)
         {
             levelOver = true;
-            winText.gameObject.SetActive(true);
+            winMenu.gameObject.SetActive(true);
             playerCharacter.win = true;
 
             StartCoroutine(LoadNextSceneAfterDelay());
@@ -112,12 +122,43 @@ public class GameManager : MonoBehaviour
                 TriggerLose();
             }
         }
+
+        if (temp == true)
+        {
+            TriggerLose();
+        }
+
+        if (temp2 == true)
+        {
+            winMenu.gameObject.SetActive(true);
+            DimScreen.gameObject.SetActive(true);
+
+        }
+
     }
 
     public void TriggerLose()
     {
-        loseText.gameObject.SetActive(true);
+        loseMenu.gameObject.SetActive(true);
+        DimScreen.gameObject.SetActive(true);
         playerCharacter.lose = true;
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadSceneAsync(0);
+
+    }
+
+    public void GoToShop()
+    {
+        SceneManager.LoadSceneAsync(3);
+
     }
 
     private IEnumerator LoadNextSceneAfterDelay()
