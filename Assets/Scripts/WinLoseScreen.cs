@@ -15,4 +15,9 @@ public class WinLoseScreen : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
+    public void ShopMenu()
+    {
+        SceneManager.LoadSceneAsync(3);
+    }
+    
 }
