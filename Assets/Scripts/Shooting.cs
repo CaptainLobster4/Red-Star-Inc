@@ -12,17 +12,18 @@ public class Shooting: MonoBehaviour
     public int currentAmmo;
 
     [Header("UI Reference")]
-    public TextMeshProUGUI; 
+    public TextMeshProUGUI BulletCountText; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //bullet count
-        //
+        currentAmmo = maxAmmo;
+        UpdateAmmoUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input
     }
 }
