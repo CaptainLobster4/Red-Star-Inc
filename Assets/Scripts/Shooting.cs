@@ -1,10 +1,18 @@
 using UnityEngine;
-// Shooting script will be applied to every gun
+using TMPro;
+
+//Tracks bullet count
 // Shot count determined by target
 // Need reference to target prefab
 
-public class shoot : MonoBehaviour
+public class Shooting: MonoBehaviour
 {
+    [Header("Ammo Settings")]
+    public int  maxAmmo = 30;
+    public int currentAmmo;
+
+    [Header("UI Reference")]
+    public TextMeshProUGUI; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
