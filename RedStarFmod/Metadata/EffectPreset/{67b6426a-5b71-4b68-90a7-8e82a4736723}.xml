@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EffectPreset" id="{67b6426a-5b71-4b68-90a7-8e82a4736723}">
+		<property name="name">
+			<value>SFX meter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0ff8d045-142d-4cd2-996e-9aac3a5d08a0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{52e6a8be-b8b9-4e98-897d-84c541efa86d}</destination>
+		</relationship>
+	</object>
+	<object class="LoudnessMeter" id="{52e6a8be-b8b9-4e98-897d-84c541efa86d}">
+		<property name="loudnessTarget">
+			<value>-18</value>
+		</property>
+	</object>
+</objects>

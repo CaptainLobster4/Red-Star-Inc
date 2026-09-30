@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EffectPreset" id="{b5c9cff9-532b-4923-8205-856418794446}">
+		<property name="name">
+			<value>UI meter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0ff8d045-142d-4cd2-996e-9aac3a5d08a0}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{60aa191c-2e81-4603-9093-53e44f57ad85}</destination>
+		</relationship>
+	</object>
+	<object class="LoudnessMeter" id="{60aa191c-2e81-4603-9093-53e44f57ad85}">
+		<property name="loudnessTarget">
+			<value>-21</value>
+		</property>
+	</object>
+</objects>
