@@ -26,8 +26,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tyler_BossLevel.unity
     guid: a13569bd2c982824e9dce2ad39a3b94e
-  - enabled: 1
-    path: Assets/Scenes/SubBoss.unity
-    guid: 6f73b3e4fed04bf469ec425eee76573f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

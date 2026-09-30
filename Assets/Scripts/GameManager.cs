@@ -1,7 +1,5 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // keep track of bullet count
@@ -23,15 +21,10 @@ public class GameManager : MonoBehaviour
     // amount of bullets needed to cut out entire shape
     public float shapeAmount = 30f;
 
-    [Header("Level Transition")]
-    [Tooltip("Must be exact same as scene name in build profile.")]
-    public string nextSceneName;
-
-    [Tooltip("Seconds to show the Win text before moving on to the next scene.")]
-    public float winDelay = 1.5f;
 
     private PlayerCharacter playerCharacter;
-    private bool levelOver = false;
+
+
 
 
     public void UpdateProgress(float newProgress)
@@ -41,8 +34,7 @@ public class GameManager : MonoBehaviour
             fillImage.fillAmount = 1f;
             return;
         }
-        else
-        {
+        else {
             fillImage.fillAmount += newProgress;
         }
 
@@ -76,32 +68,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (levelOver)
-        {
-            return;
-        }
-
         // this would be where progress is tracked
+        // 
+
         if (fillImage.fillAmount >= 1f)
         {
-            levelOver = true;
             winText.gameObject.SetActive(true);
             playerCharacter.win = true;
-
-            StartCoroutine(LoadNextSceneAfterDelay());
-        }
-    }
-
-    private IEnumerator LoadNextSceneAfterDelay()
-    {
-        yield return new WaitForSeconds(winDelay);
-
-        if (string.IsNullOrEmpty(nextSceneName))
-        {
-            Debug.LogWarning("GameManager: nextSceneName is not set on this level's GameManager - staying on this scene.");
-            yield break;
         }
 
-        SceneManager.LoadSceneAsync(nextSceneName);
+
     }
 }
