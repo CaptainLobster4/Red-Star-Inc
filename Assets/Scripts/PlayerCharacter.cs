@@ -14,6 +14,7 @@ public class PlayerCharacter : MonoBehaviour
     private Vector2 tapPosition;
 
     public bool win = false;
+    public bool lose = false;
 
 
     private void Awake()
@@ -36,7 +37,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             tapPosition = Camera.main.ScreenToWorldPoint(positionAction.ReadValue<Vector2>());
 
-            if (win == false)
+            if (win == false && lose == false)
             {
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
 

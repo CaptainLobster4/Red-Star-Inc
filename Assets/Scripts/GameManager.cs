@@ -23,8 +23,12 @@ public class GameManager : MonoBehaviour
     // amount of bullets needed to cut out entire shape
     public float shapeAmount = 30f;
 
+    [Header("Boss Fight")]
+    public bool isBossLevel;
+    public Boss currentBoss; // assign in Inspector on boss levels
+
     [Header("Level Transition")]
-    [Tooltip("Must be exact same as scene name in build profile.")]
+    [Tooltip("Exact scene name (as it appears in Build Settings) to load when this level is won. Set per-level in the Inspector - not tied to build order, so it stays correct once a level-select menu lets players jump around.")]
     public string nextSceneName;
 
     [Tooltip("Seconds to show the Win text before moving on to the next scene.")]
@@ -69,6 +73,10 @@ public class GameManager : MonoBehaviour
             playerCharacter = targetObj.GetComponent<PlayerCharacter>();
         }
 
+        if (isBossLevel && currentBoss != null)
+        {
+            currentBoss.ResetFight();
+        }
 
         //set progress to zero when new level starts eventually
 
@@ -89,7 +97,27 @@ public class GameManager : MonoBehaviour
             playerCharacter.win = true;
 
             StartCoroutine(LoadNextSceneAfterDelay());
+            return;
         }
+
+        // boss fights run on a timer instead of (or alongside) shape progress -
+        // running out of time means the player succumbs before finishing the shape
+        if (isBossLevel && currentBoss != null)
+        {
+            currentBoss.TickTimer(Time.deltaTime);
+
+            if (currentBoss.TimeExpired())
+            {
+                levelOver = true;
+                TriggerLose();
+            }
+        }
+    }
+
+    public void TriggerLose()
+    {
+        loseText.gameObject.SetActive(true);
+        playerCharacter.lose = true;
     }
 
     private IEnumerator LoadNextSceneAfterDelay()
