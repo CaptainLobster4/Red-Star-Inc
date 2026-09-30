@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 525424804}
   - component: {fileID: 525424805}
   - component: {fileID: 525424806}
+  - component: {fileID: 525424807}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -524,7 +525,7 @@ MonoBehaviour:
   fillImage: {fileID: 1819047707}
   winText: {fileID: 1457469244}
   loseText: {fileID: 300400454}
-  BulletText: {fileID: 0}
+  BulletText: {fileID: 744822020}
   bulletCount: 0
   shapeAmount: 30
   isBossLevel: 1
@@ -543,6 +544,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+--- !u!114 &525424807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525424798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc2de093450b434791f9f892eb18788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooting
+  maxAmmo: 30
+  currentAmmo: 0
+  BulletCountText: {fileID: 744822020}
 --- !u!1 &688990488
 GameObject:
   m_ObjectHideFlags: 0
