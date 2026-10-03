@@ -11,7 +11,7 @@ public class Boss : MonoBehaviour
     public BossType bossType;
 
     [Tooltip("Seconds the player has to shoot out this boss's target before it destroys the player's target. No hard-set value yet - tune per boss/level in the Inspector.")]
-    public float fightDuration = 30f;
+    public float fightDuration = 15f;
 
     [Header("Collectible Reward")]
     public CollectibleData maskReward;

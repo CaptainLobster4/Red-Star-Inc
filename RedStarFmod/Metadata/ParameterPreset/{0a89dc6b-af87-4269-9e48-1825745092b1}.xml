@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{0a89dc6b-af87-4269-9e48-1825745092b1}">
+		<property name="name">
+			<value>CounterUp</value>
+		</property>
+		<relationship name="folder">
+			<destination>{312f39b1-51dd-4a53-9059-7fe3247a0ef2}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5c8fc242-d9b2-4b96-984d-00d079153a19}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5c8fc242-d9b2-4b96-984d-00d079153a19}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

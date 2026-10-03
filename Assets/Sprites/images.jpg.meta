@@ -1,10 +1,19 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/images.jpg.meta
 guid: 057fe80eef69d1048abab4d4d0f26de8
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8957324059118975939
     second: images_0
+========
+guid: ab1cd08995dad004cbba2b9275b537e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3151992594959185564
+    second: level 1_0
+>>>>>>>> main:Assets/Sprites/level.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -178,6 +187,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/images.jpg.meta
       name: images_0
       rect:
         serializedVersion: 2
@@ -188,13 +198,30 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 145, y: 148, z: 146, w: 149}
+========
+      name: level 1_0
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 10
+        width: 480
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 241, y: 240, z: 239, w: 241}
+>>>>>>>> main:Assets/Sprites/level.png.meta
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<<< HEAD:Assets/Sprites/images.jpg.meta
       spriteID: 3cbb8d916cece4c70800000000000000
       internalID: 8957324059118975939
+========
+      spriteID: 469cbc25f6fd144d0800000000000000
+      internalID: -3151992594959185564
+>>>>>>>> main:Assets/Sprites/level.png.meta
       vertices: []
       indices: 
       edges: []
@@ -203,7 +230,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<<< HEAD:Assets/Sprites/images.jpg.meta
     spriteID: 5d6052d2b252bec4286d8d76cab69181
+========
+    spriteID: 7928942986e2ab446970b0ea0f90ad96
+>>>>>>>> main:Assets/Sprites/level.png.meta
     internalID: 0
     vertices: []
     indices: 
@@ -213,7 +244,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+<<<<<<<< HEAD:Assets/Sprites/images.jpg.meta
       images_0: 8957324059118975939
+========
+      level 1_0: -3151992594959185564
+>>>>>>>> main:Assets/Sprites/level.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
