@@ -345,7 +345,8 @@ GameObject:
   - component: {fileID: 525424803}
   - component: {fileID: 525424804}
   - component: {fileID: 525424805}
-  - component: {fileID: 525424806}
+  - component: {fileID: 525424807}
+  - component: {fileID: 525424808}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -528,7 +529,7 @@ MonoBehaviour:
   shapeAmount: 30
   nextSceneName: SubBoss
   winDelay: 1.5
---- !u!114 &525424806
+--- !u!114 &525424807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -537,11 +538,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 525424798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e351f68c85d16d43bb92d8d42916fcf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::TicketBalloonSpawner
+  TicketBalloonTypes:
+  - {fileID: 9144588734464916101, guid: f4277a3142eb5064bb9ba564e2a88898, type: 3}
+  - {fileID: 9144588734464916101, guid: 538896c7e88457849b2736a184e4e966, type: 3}
+  CloneActor: {fileID: 0}
+  Duration: 3
+  TicketsGiven: 0
+  TicketBalloonSpawnTimer: 5
+  TicketBalloonDespawnTimer: 5
+--- !u!114 &525424808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525424798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa340c5eec7978479a75527508845f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TicketTracker
+  tickets: 50
+  TicketTotal: {fileID: 1329258443}
 --- !u!1 &688990488
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.044555563, y: 0.05684376}
   m_AnchorMax: {x: 0.11400001, y: 0.48279685}
-  m_AnchoredPosition: {x: -4.90979, y: -6.4995117}
+  m_AnchoredPosition: {x: -4.909912, y: -6.4995117}
   m_SizeDelta: {x: 9.8194, y: -12.999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692482872
@@ -1515,8 +1536,7 @@ RectTransform:
   - {fileID: 265847478}
   - {fileID: 1959972804}
   - {fileID: 1314016213}
-  - {fileID: 1359033344}
-  - {fileID: 1044665687}
+  - {fileID: 1329258442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1598,81 +1618,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980801078}
-  m_CullTransparentMesh: 1
---- !u!1 &1044665686
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1044665687}
-  - component: {fileID: 1044665689}
-  - component: {fileID: 1044665688}
-  m_Layer: 5
-  m_Name: TicketBalloon (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1044665687
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044665686}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 955093241}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2692593, y: 0.27222914}
-  m_AnchorMax: {x: 0.39455557, y: 0.35825008}
-  m_AnchoredPosition: {x: 7, y: -40.841003}
-  m_SizeDelta: {x: -14.429901, y: 83.5618}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1044665688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044665686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -6270953770400647376, guid: c88b64bc4b599e44aab607b551a17f61, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1044665689
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044665686}
   m_CullTransparentMesh: 1
 --- !u!1 &1096216210
 GameObject:
@@ -1888,7 +1833,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314016212}
   m_CullTransparentMesh: 1
---- !u!1 &1359033343
+--- !u!1 &1329258441
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1896,23 +1841,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1359033344}
-  - component: {fileID: 1359033346}
-  - component: {fileID: 1359033345}
+  - component: {fileID: 1329258442}
+  - component: {fileID: 1329258444}
+  - component: {fileID: 1329258443}
   m_Layer: 5
-  m_Name: TicketBalloon
+  m_Name: TicketTotal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1359033344
+--- !u!224 &1329258442
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359033343}
+  m_GameObject: {fileID: 1329258441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1920,23 +1865,23 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955093241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.27222914}
-  m_AnchorMax: {x: 0.6434815, y: 0.40481257}
-  m_AnchoredPosition: {x: 12.5, y: 5.670044}
-  m_SizeDelta: {x: -34.4299, y: -6.438202}
+  m_AnchorMin: {x: 0.64573, y: 0.1282657}
+  m_AnchorMax: {x: 0.77217644, y: 0.22382814}
+  m_AnchoredPosition: {x: -2.4570007, y: -0.13842773}
+  m_SizeDelta: {x: -10.6757, y: -6.5231}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1359033345
+--- !u!114 &1329258443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359033343}
+  m_GameObject: {fileID: 1329258441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1945,23 +1890,85 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8389134475083476877, guid: 3aad0a7cee78df346bd99e5fee2a4e21, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1359033346
+  m_text: Ticket Totals
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 7
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1329258444
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359033343}
+  m_GameObject: {fileID: 1329258441}
   m_CullTransparentMesh: 1
 --- !u!1 &1457469242
 GameObject:
@@ -2209,7 +2216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.2000122, y: -28.7}
+  m_AnchoredPosition: {x: -1.1999512, y: -28.700012}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819047707
@@ -2302,6 +2309,14 @@ PrefabInstance:
       propertyPath: TargetArea
       value: 
       objectReference: {fileID: 904457586}
+    - target: {fileID: 6206328878138403263, guid: 083a3994d071a6342be0df70082c934b, type: 3}
+      propertyPath: LowTicketBalloon
+      value: 
+      objectReference: {fileID: 9144588734464916101, guid: 538896c7e88457849b2736a184e4e966, type: 3}
+    - target: {fileID: 6206328878138403263, guid: 083a3994d071a6342be0df70082c934b, type: 3}
+      propertyPath: HighTicketBalloon
+      value: 
+      objectReference: {fileID: 9144588734464916101, guid: f4277a3142eb5064bb9ba564e2a88898, type: 3}
     - target: {fileID: 7105631904716940053, guid: 083a3994d071a6342be0df70082c934b, type: 3}
       propertyPath: side1
       value: 
@@ -2361,7 +2376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.561}
   m_AnchorMin: {x: 0.77368534, y: 0.215}
   m_AnchorMax: {x: 0.9763889, y: 0.31441674}
-  m_AnchoredPosition: {x: 20.156433, y: 3.6540527}
+  m_AnchoredPosition: {x: 20.156494, y: 3.6540527}
   m_SizeDelta: {x: -42.899994, y: -47.307983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959972805
