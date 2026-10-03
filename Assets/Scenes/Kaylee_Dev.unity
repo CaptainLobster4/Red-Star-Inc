@@ -547,9 +547,6 @@ MonoBehaviour:
   TicketBalloonTypes:
   - {fileID: 9144588734464916101, guid: f4277a3142eb5064bb9ba564e2a88898, type: 3}
   - {fileID: 9144588734464916101, guid: 538896c7e88457849b2736a184e4e966, type: 3}
-  CloneActor: {fileID: 0}
-  Duration: 3
-  TicketsGiven: 0
   TicketBalloonSpawnTimer: 5
   TicketBalloonDespawnTimer: 5
 --- !u!114 &525424808
@@ -564,8 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa340c5eec7978479a75527508845f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TicketTracker
-  tickets: 50
   TicketTotal: {fileID: 1329258443}
+  prefix: 
 --- !u!1 &688990488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,8 +1601,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2673132361431937481, guid: 34d1183da5a81624a8c7396c6396cf19, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -6041637108386942185, guid: 26a17a517272ac24cad698d48dca9bb8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1870,7 +1867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64573, y: 0.1282657}
   m_AnchorMax: {x: 0.77217644, y: 0.22382814}
-  m_AnchoredPosition: {x: -2.4570007, y: -0.13842773}
+  m_AnchoredPosition: {x: -2.4570312, y: -0.13842773}
   m_SizeDelta: {x: -10.6757, y: -6.5231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1329258443
@@ -2167,7 +2164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5890726344488074381, guid: 46dbe9b0203c6134a8ab808a9c0f4d6c, type: 3}
+  m_Sprite: {fileID: -3151992594959185564, guid: ab1cd08995dad004cbba2b9275b537e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
