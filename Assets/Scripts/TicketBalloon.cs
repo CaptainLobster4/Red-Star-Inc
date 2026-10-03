@@ -1,24 +1,22 @@
-using System.Collections;
 using UnityEngine;
 
-public class TicketBalloons : MonoBehaviour
+// Goes on each ticket balloon PREFAB (needs a Collider2D).
+// Make one prefab with ticketValue = 1 (low) and one with ticketValue = 2 (high).
+public class TicketBalloon : MonoBehaviour
 {
-    public TicketTracker ticketTracker;
-    public int HighValue = 2;
-    public int LowValue = 1;
-    void Start()
+    [SerializeField] private int ticketValue = 1;
+
+    private bool popped = false;
+
+    // Called by BulletHole when a tap lands on this balloon
+    public void Pop()
     {
-        //Finds Ticket Tracker Script
-        ticketTracker = FindAnyObjectByType<TicketTracker>();
-    }
-    //Adds Ticket based on tier 2 balloon value
-    public void HighGivenTickets()
-    {
-        ticketTracker.AddTickets(HighValue);
-    }
-    //Gives Tickets based on tier 1 balloon value
-    public void LowGivenTickets()
-    {
-        ticketTracker.AddTickets(LowValue);
+        if (popped) return; // guards against two overlapping bullet holes double-paying
+        popped = true;
+
+        PlayerInventory.AddTickets(ticketValue);
+
+        // Hook for a pop sound / particle effect later
+        Destroy(gameObject);
     }
 }

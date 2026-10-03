@@ -18,12 +18,12 @@ public class Shooting: MonoBehaviour
     {
         //bullet count
         currentAmmo = maxAmmo;
-        
+        UpdateAmmoUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-     
+        if (Input
     }
 }
