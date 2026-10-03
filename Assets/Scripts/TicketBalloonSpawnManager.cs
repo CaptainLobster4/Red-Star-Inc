@@ -1,67 +1,48 @@
 using System.Collections;
 using UnityEngine;
 
-public class TicketBalloonSpawniManager : MonoBehaviour
+public class TicketBalloonSpawnManager : MonoBehaviour
 {
     public GameObject[] TicketBalloonTypes;
-    public GameObject CloneActor;
 
-    public float Duration=3f;
-    public float TicketsGiven;
     public float TicketBalloonSpawnTimer = 6f;
     public float TicketBalloonDespawnTimer = 2f;
-    
 
-
-
-    void Start() 
-   {
-
+    void Start()
+    {
         //Starts Balloon Spawning
         StartCoroutine(DelayedTicketBalloonSpawner());
-       
-
-       
-
-   }
+    }
 
     private IEnumerator DelayedTicketBalloonSpawner()
     {
+        if (TicketBalloonTypes == null || TicketBalloonTypes.Length == 0)
+        {
+            Debug.LogWarning("TicketBalloonSpawnManager: no balloon prefabs assigned.");
+            yield break;
+        }
+
         int chances = 3;
 
         while (chances > 0)
         {
-            //Wait for 3 seconds to start
-            //Clones ticket balloon based on array of balloons given
-            //Randomizes between the 2 options
-            //Spawns at a random location
-            //Keeps transformation rotation
-            //Destroys after despawn float ammount
+            //Wait before each spawn
             yield return new WaitForSeconds(TicketBalloonSpawnTimer);
 
+            //Randomly picks one of the balloon prefabs and spawns it at a random location
             GameObject clone = Instantiate(
-            TicketBalloonTypes
-            [Random.Range(0,
-           TicketBalloonTypes.Length)],
-            new Vector2(Random.Range(-1f, 1f), Random.Range(-3f, -1f)),
-            Quaternion.identity
+                TicketBalloonTypes[Random.Range(0, TicketBalloonTypes.Length)],
+                new Vector2(Random.Range(-1f, 1f), Random.Range(-3f, -1f)),
+                Quaternion.identity
             );
 
-           CloneActor = clone;
-
+            //Balloon despawns on its own if nobody pops it in time.
+            //If it's popped first, TicketBalloon.Pop() destroys it early.
             Destroy(clone, TicketBalloonDespawnTimer);
 
             yield return new WaitForSeconds(3);
 
-
             chances--;
         }
     }
-
-    //Pops clone in case of collision earlier than the routine
-  public  void popped()
-    {
-        Destroy(CloneActor);
-    }
 }
-

@@ -1,82 +1,50 @@
 using UnityEngine;
-using UnityEngine.Assemblies;
 
 public class BulletHole : MonoBehaviour
 {
+    [Header("Shape Progress")]
+    [Tooltip("Progress-bar fill added per bullet that lands in the target area")]
+    [SerializeField] private float baseProgress = 0.025f;
 
-    // area around the actual shape that bullets count in. should be a child of shape
-    public GameObject TargetArea;
-    public GameObject HighTicketBalloon;
-    public GameObject LowTicketBalloon;
-    public TicketBalloons ticketBalloons;
-    public TicketBalloonSpawniManager ticketBalloonSpawnManager;
-    
-    // gamemanager script
+    [Header("Duckshot Ability")]
+    [Tooltip("How much bigger the bullet hole (and its collider) is when Duckshot is equipped")]
+    [SerializeField] private float duckshotScale = 2.5f;
+    [Tooltip("Progress multiplier while Duckshot is equipped. A trigger only fires once per bullet, so without this a wider hole would count the same as a normal one.")]
+    [SerializeField] private float duckshotProgressMultiplier = 2f;
+
+    // area around the actual shape that bullets count in
+    private GameObject targetArea;
     private GameManager gameManager;
-
-    // amount of bullets needed to cut out shape (should be turned into a percentage?)
-    //      also should be called from gamemanager
-    //private float shapeAmount = 40f;
+    private float progressMultiplier = 1f;
 
     private void Awake()
     {
+        targetArea = GameObject.Find("TriangleArea");
+        gameManager = FindAnyObjectByType<GameManager>();
 
-        TargetArea = GameObject.Find("TriangleArea");
-        HighTicketBalloon = GameObject.FindGameObjectWithTag("HighBalloon");
-        LowTicketBalloon = GameObject.FindGameObjectWithTag("LowBalloon");
-
-        // find and get gamemanager script
-        GameObject targetObj = GameObject.FindGameObjectWithTag("MainCamera");
-        if (targetObj != null)
+        // Duckshot (bought in the shop, lasts one round): scale the whole bullet hole up so it covers a wider area
+        // (sprite + collider scale together, so it also pops balloons more easily)
+        if (PlayerInventory.HasAbility(AbilityType.Duckshot))
         {
-            gameManager = targetObj.GetComponent<GameManager>();
+            transform.localScale *= duckshotScale;
+            progressMultiplier = duckshotProgressMultiplier;
         }
-
-        //Finds Balloon Spawn Manager
-        GameObject ticketBalloonSpawnManager = GameObject.FindGameObjectWithTag("MainCamera");
-        
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        // when this object collides with the target area, decreases amount required to shoot out the shape 
-        //      and updates progress bar
-        if (collision.gameObject == TargetArea)
+        // Hit the shape: fill progress bar and count the bullet toward cutting out the shape
+        if (collision.gameObject == targetArea)
         {
-            Debug.Log("collided with shape,, amnt left is " + gameManager.shapeAmount);
+            if (gameManager == null) return;
 
-            //if (gameManager.shapeAmount > 0f)
-            //{
-                gameManager.UpdateProgress(0.025f);
-                gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
-            //}
-
-
-
-
-            //LOGIC FOR TRACKING WHEN HITTING TICKET BALLOONS TO EXECUTE ADDING TICKETS BASED ON VALUE OF BALLOON
+            gameManager.UpdateProgress(baseProgress * progressMultiplier);
+            gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
         }
-        if (collision.gameObject == HighTicketBalloon)
+        // Hit a ticket balloon: it awards its own tickets and destroys itself
+        else if (collision.TryGetComponent(out TicketBalloon balloon))
         {
-            Debug.Log("Added Higher Tickets " );
-
-            //Calls when hitting ticket balloon
-            ticketBalloons.HighGivenTickets();
-            ticketBalloonSpawnManager.popped();
-
-
+            balloon.Pop();
         }
-        if (collision.gameObject == LowTicketBalloon)
-        {
-            Debug.Log("Added Lower Tickets ");
-
-            //Calls when hitting ticket balloon
-            ticketBalloons.LowGivenTickets();
-            ticketBalloonSpawnManager.popped();
-        }
-
     }
-
 }

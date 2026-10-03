@@ -96,6 +96,9 @@ public class GameManager : MonoBehaviour
             winText.gameObject.SetActive(true);
             playerCharacter.win = true;
 
+            // round is over - any ability bought for it is now used up
+            PlayerInventory.ConsumeAllAbilities();
+
             StartCoroutine(LoadNextSceneAfterDelay());
             return;
         }
@@ -118,6 +121,9 @@ public class GameManager : MonoBehaviour
     {
         loseText.gameObject.SetActive(true);
         playerCharacter.lose = true;
+
+        // round is over - any ability bought for it is now used up
+        PlayerInventory.ConsumeAllAbilities();
     }
 
     private IEnumerator LoadNextSceneAfterDelay()
