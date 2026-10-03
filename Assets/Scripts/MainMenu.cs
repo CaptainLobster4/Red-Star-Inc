@@ -9,11 +9,6 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
-
-    public void ShopMenu()
-    {
-        SceneManager.LoadSceneAsync(3);
-    }
     
     public void CollectionMenu()
     {

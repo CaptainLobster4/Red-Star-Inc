@@ -130,6 +130,11 @@ public class ShopMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
+    public void PlayGame()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
+    
     // Right-click the component header in Play Mode to use these while testing
     [ContextMenu("Debug: Add 100 Tickets")]
     private void DebugAddTickets()
