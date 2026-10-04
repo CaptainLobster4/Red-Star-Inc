@@ -209,7 +209,7 @@ MonoBehaviour:
   bulletCount: 0
   shapeAmount: 30
   isBossLevel: 1
-  currentBoss: {fileID: 0}
+  currentBoss: {fileID: 533914937}
   nextSceneName: SubBoss
   winDelay: 1.5
 --- !u!114 &144996827
@@ -620,8 +620,9 @@ GameObject:
   m_Component:
   - component: {fileID: 533914935}
   - component: {fileID: 533914936}
+  - component: {fileID: 533914937}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Comedy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -703,6 +704,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &533914937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533914934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e807f383ef302f428b7aeb43b75892c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boss
+  bossType: 0
+  fightDuration: 15
+  maskReward: {fileID: 0}
+  timeRemaining: 0
 --- !u!1 &623772325
 GameObject:
   m_ObjectHideFlags: 0
