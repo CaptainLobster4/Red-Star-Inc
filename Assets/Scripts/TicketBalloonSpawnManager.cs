@@ -8,9 +8,6 @@ public class TicketBalloonSpawnManager : MonoBehaviour
     public float TicketBalloonSpawnTimer = 6f;
     public float TicketBalloonDespawnTimer = 2f;
 
-    [Tooltip("Max balloons spawned per round. 0 = keep spawning until the round ends.")]
-    public int maxBalloonsPerRound = 0;
-
     void Start()
     {
         //Starts Balloon Spawning
@@ -25,9 +22,9 @@ public class TicketBalloonSpawnManager : MonoBehaviour
             yield break;
         }
 
-        int spawned = 0;
+        int chances = 3;
 
-        while (maxBalloonsPerRound <= 0 || spawned < maxBalloonsPerRound)
+        while (chances > 0)
         {
             //Wait before each spawn
             yield return new WaitForSeconds(TicketBalloonSpawnTimer);
@@ -38,13 +35,14 @@ public class TicketBalloonSpawnManager : MonoBehaviour
                 new Vector2(Random.Range(-1f, 1f), Random.Range(-3f, -1f)),
                 Quaternion.identity
             );
-            spawned++;
 
             //Balloon despawns on its own if nobody pops it in time.
             //If it's popped first, TicketBalloon.Pop() destroys it early.
             Destroy(clone, TicketBalloonDespawnTimer);
 
             yield return new WaitForSeconds(3);
+
+            chances--;
         }
     }
 }

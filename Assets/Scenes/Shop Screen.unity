@@ -437,14 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cf4ef978640f5438d7c0c82f8c9de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  abilities:
-  - ability: 0
-    displayName: 
-    cost: 0
-    available: 1
-    button: {fileID: 2094291202}
-    nameLabel: {fileID: 0}
-    buttonLabel: {fileID: 0}
+  abilities: []
   messageText: {fileID: 0}
 --- !u!114 &374883985
 MonoBehaviour:
