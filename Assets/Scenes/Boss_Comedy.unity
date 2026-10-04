@@ -208,7 +208,7 @@ MonoBehaviour:
   BulletText: {fileID: 0}
   bulletCount: 0
   shapeAmount: 30
-  isBossLevel: 0
+  isBossLevel: 1
   currentBoss: {fileID: 0}
   nextSceneName: SubBoss
   winDelay: 1.5
@@ -381,10 +381,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TicketBalloonSpawnManager
   TicketBalloonTypes:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9144588734464916101, guid: f4277a3142eb5064bb9ba564e2a88898, type: 3}
+  - {fileID: 9144588734464916101, guid: 538896c7e88457849b2736a184e4e966, type: 3}
   TicketBalloonSpawnTimer: 6
   TicketBalloonDespawnTimer: 2
+  maxBalloonsPerRound: 5
 --- !u!1 &162811318
 GameObject:
   m_ObjectHideFlags: 0
