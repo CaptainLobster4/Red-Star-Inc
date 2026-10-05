@@ -208,9 +208,9 @@ MonoBehaviour:
   BulletText: {fileID: 0}
   bulletCount: 0
   shapeAmount: 30
-  isBossLevel: 1
+  isBossLevel: 0
   currentBoss: {fileID: 533914937}
-  nextSceneName: SubBoss
+  nextSceneName: Win Screen
   winDelay: 1.5
 --- !u!114 &144996827
 MonoBehaviour:
