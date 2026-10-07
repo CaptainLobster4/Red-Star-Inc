@@ -13,7 +13,7 @@
 	</object>
 	<object class="LoudnessMeter" id="{60aa191c-2e81-4603-9093-53e44f57ad85}">
 		<property name="loudnessTarget">
-			<value>-21</value>
+			<value>-22</value>
 		</property>
 	</object>
 </objects>

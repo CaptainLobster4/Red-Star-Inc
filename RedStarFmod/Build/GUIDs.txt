@@ -1,0 +1,43 @@
+{ff8b27d2-a90b-4ade-912c-3e1a0a9b04b1} bank:/DX
+{89616380-3cbc-4885-a90d-cf85a7837489} bank:/MX
+{6562abd7-a638-425d-9ee5-d092c2207155} bank:/Master
+{fd7f8b03-d743-0e1f-18ac-5a6c33d377cd} bank:/Master.strings
+{4e8d7bf5-a359-4b70-b9d6-4fc78c9b3c5a} bank:/SFX
+{1b441f71-06b8-401b-840c-9e05724a0e79} bank:/UI
+{bc0f60e3-2bdb-4155-9e4c-fa21b515df0e} bus:/
+{e50d1df2-4039-49f4-b2f9-95092feafa03} bus:/DX
+{a011fd17-2914-46b7-a04b-c89fa94cd8ab} bus:/DX/MC
+{c3f83ca6-d1f0-45df-942a-1538eb165d65} bus:/DX/NPC
+{af827113-2c22-45db-a7db-8db9116fa505} bus:/MX
+{90121db2-72c0-48eb-b63a-962b4cb04530} bus:/MX/Combat
+{189c2b21-a14b-4851-b7bb-555e6f6f872f} bus:/MX/Exporation
+{1a913503-80fa-49c2-a377-df8e9caa294f} bus:/MX/Stingers
+{91c95cb5-4913-47c3-b752-b424b15d24c3} bus:/MX/System
+{e2a800c6-14f3-4722-b34a-df80cca8139c} bus:/Reverb ext
+{d7c629dc-1df6-498f-9f1e-c677a85a18e2} bus:/Reverb int
+{1f42ce96-132a-4f88-a062-896400788fc9} bus:/SFX
+{261d3e99-8bae-4f2e-98a8-5678d0064be5} bus:/SFX/AMB
+{e918e062-7bd1-485d-b89d-27fdaf112462} bus:/SFX/NPC
+{293b36f3-504a-4794-b1ce-dbc559ea1004} bus:/SFX/Player
+{c2331b27-0c38-4efc-83e8-0f7a8b60506d} bus:/UI
+{b52c3e93-a180-4596-8632-140149e99a80} event:/DX/NPC/Ring master 1
+{6e0bb6b1-fbe9-4910-a3a1-1518c503d17a} event:/DX/NPC/Ring master 2
+{63d7bdb2-bcda-4952-9d43-08859c47985a} event:/DX/NPC/Ring master 3
+{fb19c6d5-1678-49e4-9d47-d8b5ed9ff15a} event:/MX/System/BGM
+{08f2544a-1cf7-4c74-b68e-94cf9d87ed87} event:/SFX/Mechanics/Ballon pop
+{d4558eae-382a-4d25-9b38-c607bd0fb3c1} event:/SFX/Mechanics/Block break
+{9f544fde-d59b-4c94-a82a-1792477c5bb7} event:/SFX/Mechanics/Duck movment
+{2d515b7f-dd3d-4fa2-bd88-f0b892d3580b} event:/SFX/Mechanics/Duck quack
+{4020055d-83bb-49e9-b976-116ca8459f77} event:/SFX/Mechanics/Paper hit
+{63b3ca1b-ba4b-4a9d-97f1-753ead68d022} event:/SFX/Mechanics/Shot blocked
+{b3e0dfc1-d649-4e0b-a4ed-f69e639f18af} event:/SFX/Weapons/Double shot
+{2eeb29a3-1da2-4621-b3eb-fbc3ab9900c4} event:/SFX/Weapons/Reload start
+{4243822b-f87b-4ed8-bd91-3efd9821cb29} event:/SFX/Weapons/Reload stop
+{1412d6ec-adc4-4884-aa76-e43e5328e3b5} event:/SFX/Weapons/Reload tick
+{525ca236-bc74-459b-9a64-626400e9a98e} event:/SFX/Weapons/Single shot
+{cba232d0-f16c-4b8b-82cc-fb1f4978a18e} event:/SFX/Weapons/Spread shot
+{b15e3bc1-4e99-4494-b1bd-ff1b52fa0e4c} event:/UI/Front end/Menu close
+{64fed1f3-4396-4dd4-bfc5-8f11461c3b4a} event:/UI/Front end/Menu open
+{19afc494-fffd-4750-82d5-e195809929e7} event:/UI/Front end/Menu select
+{5c8fc242-d9b2-4b96-984d-00d079153a19} parameter:/CounterUp
+{cc6041a9-a805-4a9b-b4c2-a9cc7b4799c7} parameter:/Counterstop
