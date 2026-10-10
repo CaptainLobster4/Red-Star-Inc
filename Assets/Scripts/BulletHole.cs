@@ -16,6 +16,7 @@ public class BulletHole : MonoBehaviour
     private GameObject targetArea;
     private GameManager gameManager;
     private float progressMultiplier = 1f;
+    public metalLogic metalL;
 
     private void Awake()
     {
@@ -45,6 +46,13 @@ public class BulletHole : MonoBehaviour
         else if (collision.TryGetComponent(out TicketBalloon balloon))
         {
             balloon.Pop();
+        }
+
+        if (collision.gameObject.tag == "MetalLayer")
+        {
+            metalL = collision.gameObject.GetComponent<metalLogic>();
+            metalL.health = metalL.health - 1;
+            Destroy(gameObject);
         }
     }
 }
