@@ -61,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // new round: abilities bought in the shop are used up now and last this round only
+        PlayerInventory.BeginRound();
+
         // current level
         // is boss fight?
         // equipped gun
@@ -96,9 +99,6 @@ public class GameManager : MonoBehaviour
             winText.gameObject.SetActive(true);
             playerCharacter.win = true;
 
-            // round is over - any ability bought for it is now used up
-            PlayerInventory.ConsumeAllAbilities();
-
             StartCoroutine(LoadNextSceneAfterDelay());
             return;
         }
@@ -117,13 +117,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        PlayerInventory.EndRound();
+    }
+
     public void TriggerLose()
     {
         loseText.gameObject.SetActive(true);
         playerCharacter.lose = true;
-
-        // round is over - any ability bought for it is now used up
-        PlayerInventory.ConsumeAllAbilities();
     }
 
     private IEnumerator LoadNextSceneAfterDelay()
