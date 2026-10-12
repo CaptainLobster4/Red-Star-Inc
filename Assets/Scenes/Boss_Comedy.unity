@@ -1670,7 +1670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13800001, y: 0.062270842}
   m_AnchorMax: {x: 0.2692593, y: 0.12334375}
-  m_AnchoredPosition: {x: 4.5699463, y: 2.9389648}
+  m_AnchoredPosition: {x: 4.569824, y: 2.9389648}
   m_SizeDelta: {x: 9.139999, y: 5.877701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232944136
@@ -1745,7 +1745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.1999512, y: -28.700012}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301236900
@@ -1761,14 +1761,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.09174359, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4641323523721209314, guid: 36e414f3c5091114abb4aee1e8809fc8, type: 3}
+  m_Sprite: {fileID: 1302723820812287101, guid: 2d2884814e97e50488d2bfb960904d76, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2314,7 +2314,7 @@ RectTransform:
   m_GameObject: {fileID: 1626360423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3932328, y: 1.2523441, z: 1.2523441}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1301236899}
@@ -2322,7 +2322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23500001, y: 0.8087291}
   m_AnchorMax: {x: 0.8092222, y: 0.934125}
-  m_AnchoredPosition: {x: -6.915039, y: -7}
+  m_AnchoredPosition: {x: -11.000061, y: 76}
   m_SizeDelta: {x: 47.8302, y: -1.6712952}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626360425
@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1540426309290004842, guid: 92ab5ebb14129fa418513a70e8106352, type: 3}
+  m_Sprite: {fileID: 8416243949045666254, guid: 9ff746439a990c84899c4389e7a10520, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
