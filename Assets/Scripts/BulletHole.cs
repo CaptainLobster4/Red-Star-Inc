@@ -25,7 +25,7 @@ public class BulletHole : MonoBehaviour
 
         // Duckshot (bought in the shop, lasts one round): scale the whole bullet hole up so it covers a wider area
         // (sprite + collider scale together, so it also pops balloons more easily)
-        if (PlayerInventory.HasAbility(AbilityType.Duckshot))
+        if (PlayerInventory.IsActive(AbilityType.Duckshot))
         {
             transform.localScale *= duckshotScale;
             progressMultiplier = duckshotProgressMultiplier;
@@ -43,9 +43,14 @@ public class BulletHole : MonoBehaviour
             gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
         }
         // Hit a ticket balloon: it awards its own tickets and destroys itself
-        else if (collision.TryGetComponent(out TicketBalloon balloon))
+        else
         {
-            balloon.Pop();
+            // GetComponentInParent so it still works if the Collider2D is on a child of the balloon
+            TicketBalloon balloon = collision.GetComponentInParent<TicketBalloon>();
+            if (balloon != null)
+            {
+                balloon.Pop();
+            }
         }
 
         if (collision.gameObject.tag == "MetalLayer")
