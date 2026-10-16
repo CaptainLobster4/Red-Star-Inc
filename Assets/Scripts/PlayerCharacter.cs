@@ -1,6 +1,9 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
+using NUnit.Framework.Constraints;
+using Unity.VisualScripting;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -41,7 +44,9 @@ public class PlayerCharacter : MonoBehaviour
             {
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
 
+                RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
             }
         }
     }
+
 }

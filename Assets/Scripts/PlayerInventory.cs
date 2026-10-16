@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum AbilityType
@@ -10,12 +11,19 @@ public enum AbilityType
 // Static save layer so tickets + purchased abilities survive scene loads
 // (game scene <-> shop scene) and app restarts. Not a MonoBehaviour: nothing to attach.
 //
-// Abilities are single-round consumables: buying one arms it for the NEXT round,
-// and GameManager calls ConsumeAllAbilities() when that round ends (win or lose).
+// Abilities are single-round consumables:
+//   - Buying one "arms" it (saved, shows as Ready in the shop).
+//   - GameManager.Start() calls BeginRound(): armed abilities are used up on the spot
+//     (saved copy deleted) and become ACTIVE for that round only (memory only).
+//   - BulletHole etc. check IsActive(), never HasAbility().
+// Because it's consumed when the round STARTS, leaving mid-round can't keep it.
 public static class PlayerInventory
 {
     private const string TicketsKey = "Tickets";
     private const string AbilityKey = "AbilityOwned_";
+
+    // Abilities live for the current round. Never saved to disk.
+    private static readonly HashSet<AbilityType> activeThisRound = new HashSet<AbilityType>();
 
     // UI scripts subscribe to these so they refresh automatically
     public static event Action<int> OnTicketsChanged;
@@ -48,10 +56,16 @@ public static class PlayerInventory
 
     // ---------- Abilities (single-round consumables) ----------
 
-    // True if the player has bought this ability and hasn't used it up yet
+    // Bought and waiting for the next round (what the shop shows as "Ready")
     public static bool HasAbility(AbilityType ability)
     {
         return PlayerPrefs.GetInt(AbilityKey + ability, 0) == 1;
+    }
+
+    // Working right now, this round only (what gameplay scripts should check)
+    public static bool IsActive(AbilityType ability)
+    {
+        return activeThisRound.Contains(ability);
     }
 
     // Spends tickets and arms the ability for the next round.
@@ -67,14 +81,19 @@ public static class PlayerInventory
         return true;
     }
 
-    // Called when a round ends: every armed ability is used up and must be rebought
-    public static void ConsumeAllAbilities()
+    // Call once when a round starts. Starts from a clean slate, then moves every
+    // armed ability into this round's active set and deletes the saved copy,
+    // so it has to be rebought for the next round.
+    public static void BeginRound()
     {
+        activeThisRound.Clear();
+
         bool anyConsumed = false;
         foreach (AbilityType ability in Enum.GetValues(typeof(AbilityType)))
         {
             if (HasAbility(ability))
             {
+                activeThisRound.Add(ability);
                 PlayerPrefs.DeleteKey(AbilityKey + ability);
                 anyConsumed = true;
             }
@@ -87,9 +106,16 @@ public static class PlayerInventory
         }
     }
 
+    // Call when the round's scene is torn down
+    public static void EndRound()
+    {
+        activeThisRound.Clear();
+    }
+
     // Testing helper - wipes tickets and all abilities
     public static void ResetAll()
     {
+        activeThisRound.Clear();
         PlayerPrefs.DeleteKey(TicketsKey);
         foreach (AbilityType ability in Enum.GetValues(typeof(AbilityType)))
         {

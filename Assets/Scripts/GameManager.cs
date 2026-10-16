@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     public bool isBossLevel;
     public Boss currentBoss; // assign in Inspector on boss levels
 
+    [Tooltip("Optional. Text shown on a boss win when a collectible is unlocked for the first time.")]
+    public TextMeshProUGUI collectibleUnlockedText;
+
     [Header("Level Transition")]
     [Tooltip("Exact scene name (as it appears in Build Settings) to load when this level is won. Set per-level in the Inspector - not tied to build order, so it stays correct once a level-select menu lets players jump around.")]
     public string nextSceneName;
@@ -61,6 +64,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // new round: abilities bought in the shop are used up now and last this round only
+        PlayerInventory.BeginRound();
+
         // current level
         // is boss fight?
         // equipped gun
@@ -96,8 +102,7 @@ public class GameManager : MonoBehaviour
             winText.gameObject.SetActive(true);
             playerCharacter.win = true;
 
-            // round is over - any ability bought for it is now used up
-            PlayerInventory.ConsumeAllAbilities();
+            AwardBossCollectible();
 
             StartCoroutine(LoadNextSceneAfterDelay());
             return;
@@ -117,13 +122,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        PlayerInventory.EndRound();
+    }
+
+    // Beating a boss level unlocks that boss's collectible (Boss.maskReward).
+    // Losing, or a non-boss level, awards nothing.
+    private void AwardBossCollectible()
+    {
+        if (!isBossLevel || currentBoss == null || currentBoss.maskReward == null)
+        {
+            return;
+        }
+
+        if (CollectibleManager.Instance == null)
+        {
+            Debug.LogWarning("GameManager: no CollectibleManager found, so the collectible wasn't saved. Start from the main menu, or add a CollectibleManager object to this scene.");
+            return;
+        }
+
+        bool firstTime = !CollectibleManager.Instance.IsUnlocked(currentBoss.maskReward);
+        CollectibleManager.Instance.Unlock(currentBoss.maskReward);
+
+        if (firstTime && collectibleUnlockedText != null)
+        {
+            collectibleUnlockedText.text = "New collectible: " + currentBoss.maskReward.collectibleName;
+            collectibleUnlockedText.gameObject.SetActive(true);
+        }
+    }
+
     public void TriggerLose()
     {
         loseText.gameObject.SetActive(true);
         playerCharacter.lose = true;
-
-        // round is over - any ability bought for it is now used up
-        PlayerInventory.ConsumeAllAbilities();
     }
 
     private IEnumerator LoadNextSceneAfterDelay()
