@@ -9,6 +9,8 @@ public class PlayerCharacter : MonoBehaviour
 {
 
     public GameObject BulletHole;
+    public GameObject Paper;
+    private BoxCollider2D paperCollider;
 
     [SerializeField] private InputActionAsset inputActions;
     private InputAction interactAction;
@@ -31,6 +33,8 @@ public class PlayerCharacter : MonoBehaviour
     void Start()
     {
         // Starting health
+
+        paperCollider = Paper.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -43,8 +47,17 @@ public class PlayerCharacter : MonoBehaviour
             if (win == false && lose == false)
             {
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
+                if (paperCollider.bounds.Contains(tapPosition))
+                {
+                    //Debug.Log("on paper");
+                }
+                else
+                {
+                    BulletHole bulletScript = currentBullethole.GetComponent<BulletHole>();
+                    bulletScript.notOnPaper = true;
+                }
 
-                RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
+                    RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
             }
         }
     }
