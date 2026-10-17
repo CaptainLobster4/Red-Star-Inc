@@ -90,6 +90,7 @@ public class BulletHole : MonoBehaviour
         if (notOnPaper)
         {
             GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(doubleShotInstance);
         }
     }
 }
