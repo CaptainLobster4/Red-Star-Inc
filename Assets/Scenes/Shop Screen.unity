@@ -221,14 +221,14 @@ RectTransform:
   m_GameObject: {fileID: 277804875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3707685, y: 1.2508401, z: 1.2508401}
+  m_LocalScale: {x: 1.3707687, y: 1.2508402, z: 1.2508402}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 882789120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5426025, y: 298.63998}
+  m_AnchoredPosition: {x: -21, y: -285}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277804877
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 tickets
+  m_text: 9999 tickets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -443,13 +443,6 @@ MonoBehaviour:
     cost: 0
     available: 1
     button: {fileID: 2094291202}
-    nameLabel: {fileID: 0}
-    buttonLabel: {fileID: 0}
-  - ability: 1
-    displayName: Double Shot
-    cost: 0
-    available: 1
-    button: {fileID: 882789121}
     nameLabel: {fileID: 0}
     buttonLabel: {fileID: 0}
   messageText: {fileID: 0}
