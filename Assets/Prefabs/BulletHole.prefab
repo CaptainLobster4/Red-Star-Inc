@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8198341979990551590}
   - component: {fileID: 9181551222062368593}
   - component: {fileID: 6206328878138403263}
+  - component: {fileID: 2492610638076030030}
   m_Layer: 7
   m_Name: BulletHole
   m_TagString: Untagged
@@ -170,3 +171,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e2d518a89756a40b7e050b8d549c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletHole1
+  baseProgress: 0.025
+  duckshotScale: 2.5
+  duckshotProgressMultiplier: 2
+  doubleshotProgressMultiplier: 2
+  DoubleShotBulletHole: {fileID: 4660533273157339134, guid: 76d12d76dffee994484c848533387fe2, type: 3}
+  metalL: {fileID: 0}
+--- !u!114 &2492610638076030030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913011119312630297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a58cc0e500d7fe4694f6bec46d793a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckOverlap
