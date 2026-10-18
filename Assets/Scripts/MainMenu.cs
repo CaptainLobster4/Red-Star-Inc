@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     
     public void CollectionMenu()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(4);
     }
     
 }

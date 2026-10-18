@@ -5,7 +5,7 @@ using UnityEngine;
 public enum AbilityType
 {
     Duckshot,
-    SecondAbility   // placeholder for the 2nd purchasable ability - rename once it's designed
+    DoubleShot   // placeholder for the 2nd purchasable ability - rename once it's designed
 }
 
 // Static save layer so tickets + purchased abilities survive scene loads
