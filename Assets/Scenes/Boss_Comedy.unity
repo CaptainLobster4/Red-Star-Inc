@@ -3060,6 +3060,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9861032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0169662
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5130867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3104,14 +3116,39 @@ PrefabInstance:
       value: MetalSheet
       objectReference: {fileID: 0}
     - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1574618152248317675}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: targetCollider
       value: 
       objectReference: {fileID: 1688187357}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: metalSpriteBase
+      value: 
+      objectReference: {fileID: 6564371504608450398, guid: 095a428b77b0fd6428081eade0b03c71, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: metalSpriteLightDMG
+      value: 
+      objectReference: {fileID: -4004560948593935500, guid: b44e7aeae6414d241924903879406ad2, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: metealSpriteHeavyDMG
+      value: 
+      objectReference: {fileID: -168793587822446694, guid: 3c2725fb0cc3cd940811f4bf4846d243, type: 3}
+    - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6564371504608450398, guid: 095a428b77b0fd6428081eade0b03c71, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+--- !u!212 &1574618152248317675 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+  m_PrefabInstance: {fileID: 1574618152248317674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
