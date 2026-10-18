@@ -23,7 +23,7 @@
 {b52c3e93-a180-4596-8632-140149e99a80} event:/DX/NPC/Ring master 1
 {6e0bb6b1-fbe9-4910-a3a1-1518c503d17a} event:/DX/NPC/Ring master 2
 {63d7bdb2-bcda-4952-9d43-08859c47985a} event:/DX/NPC/Ring master 3
-{fb19c6d5-1678-49e4-9d47-d8b5ed9ff15a} event:/MX/System/BGM
+{fb19c6d5-1678-49e4-9d47-d8b5ed9ff15a} event:/MX/System/Menu loop
 {08f2544a-1cf7-4c74-b68e-94cf9d87ed87} event:/SFX/Mechanics/Ballon pop
 {d4558eae-382a-4d25-9b38-c607bd0fb3c1} event:/SFX/Mechanics/Block break
 {9f544fde-d59b-4c94-a82a-1792477c5bb7} event:/SFX/Mechanics/Duck movment
@@ -41,3 +41,6 @@
 {19afc494-fffd-4750-82d5-e195809929e7} event:/UI/Front end/Menu select
 {5c8fc242-d9b2-4b96-984d-00d079153a19} parameter:/CounterUp
 {cc6041a9-a805-4a9b-b4c2-a9cc7b4799c7} parameter:/Counterstop
+{bde8fd7a-6971-4828-8109-67d07113e3a5} snapshot:/menuOpen
+{03ba0c55-5161-440d-b807-165aca07d8df} snapshot:/sceneChange
+{9c03ada2-0de3-42b4-bbfa-1e7bbed1e935} vca:/New VCA
