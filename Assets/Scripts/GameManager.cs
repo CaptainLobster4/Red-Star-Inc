@@ -37,8 +37,15 @@ public class GameManager : MonoBehaviour
     [Tooltip("Seconds to show the Win text before moving on to the next scene.")]
     public float winDelay = 1.5f;
 
+    [Tooltip("Exact scene name of the Lose screen scene (as it appears in Build Settings). Loaded when the player loses.")]
+    public string loseSceneName;
+
+    [Tooltip("Seconds to show the Lose text (if assigned) before moving to the Lose screen.")]
+    public float loseDelay = 1.5f;
+
     private PlayerCharacter playerCharacter;
     private bool levelOver = false;
+    private bool loseTriggered = false;
 
 
     public void UpdateProgress(float newProgress)
@@ -154,8 +161,38 @@ public class GameManager : MonoBehaviour
 
     public void TriggerLose()
     {
-        loseText.gameObject.SetActive(true);
-        playerCharacter.lose = true;
+        // guard so a second call (e.g. from another script) can't start a second scene load
+        if (loseTriggered)
+        {
+            return;
+        }
+        loseTriggered = true;
+        levelOver = true;
+
+        // the on-screen "You lost!" text is now optional - the Lose screen scene takes over
+        if (loseText != null)
+        {
+            loseText.gameObject.SetActive(true);
+        }
+        if (playerCharacter != null)
+        {
+            playerCharacter.lose = true;
+        }
+
+        StartCoroutine(LoadLoseSceneAfterDelay());
+    }
+
+    private IEnumerator LoadLoseSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(loseDelay);
+
+        if (string.IsNullOrEmpty(loseSceneName))
+        {
+            Debug.LogWarning("GameManager: loseSceneName is not set on this level's GameManager - staying on this scene.");
+            yield break;
+        }
+
+        SceneManager.LoadSceneAsync(loseSceneName);
     }
 
     private IEnumerator LoadNextSceneAfterDelay()

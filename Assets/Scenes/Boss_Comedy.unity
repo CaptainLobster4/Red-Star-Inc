@@ -213,6 +213,8 @@ MonoBehaviour:
   collectibleUnlockedText: {fileID: 0}
   nextSceneName: Win Screen
   winDelay: 1.5
+  loseSceneName: Lose Screen
+  loseDelay: 1.5
 --- !u!114 &144996827
 MonoBehaviour:
   m_ObjectHideFlags: 0

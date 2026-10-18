@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Collected Screen.unity
     guid: 71b6ffc31897b494ab857158ff71c618
+  - enabled: 1
+    path: Assets/Scenes/Lose Screen.unity
+    guid: b54594290f662614387181e78d43e570
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
