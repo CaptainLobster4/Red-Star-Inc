@@ -103,13 +103,13 @@ TextureImporter:
       name: shopscreen_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 41
         y: 97
-        width: 454
-        height: 337
+        width: 398
+        height: 326
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 227, y: 169, z: 227, w: 168}
+      border: {x: 199, y: 163, z: 199, w: 163}
       customData: 
       outline: []
       physicsShape: []
