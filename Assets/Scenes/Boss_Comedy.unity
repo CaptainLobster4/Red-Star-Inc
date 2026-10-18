@@ -210,6 +210,7 @@ MonoBehaviour:
   shapeAmount: 30
   isBossLevel: 1
   currentBoss: {fileID: 533914937}
+  collectibleUnlockedText: {fileID: 0}
   nextSceneName: Win Screen
   winDelay: 1.5
 --- !u!114 &144996827
@@ -770,7 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   bossType: 0
   fightDuration: 15
-  maskReward: {fileID: 0}
+  maskReward: {fileID: 11400000, guid: 7344fc38ec2d8e84ab600129fede656b, type: 2}
   timeRemaining: 0
 --- !u!1 &618847024
 GameObject:

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Comedy
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
   collectibleName: Comedy
-  icon: {fileID: 0}
+  icon: {fileID: 6660783624410144326, guid: 946bd7253d0f16d4e881ea218e88f5c1, type: 3}
   storyText: Narrative Goes Here
