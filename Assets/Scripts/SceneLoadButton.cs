@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 // or the player arrived through another script), LoadPrevious() uses Scene Name as a fallback.
 public class SceneLoadButton : MonoBehaviour
 {
-    [Tooltip("Load(): the scene to open, e.g. Collected Scene.\nLoadPrevious(): the fallback scene if no previous scene is known 
+    [Tooltip("Load() opens this scene (e.g. Collected Scene). LoadPrevious() uses it only as a fallback when no previous scene is known.")]
     [SerializeField] private string sceneName = "Collected Scene";
 
     // Shared across all SceneLoadButtons; lives until the game closes
