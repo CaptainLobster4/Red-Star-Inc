@@ -16,6 +16,8 @@ public class SceneImageManager : MonoBehaviour
         if (imageToActivate != null)
         {
             imageToActivate.SetActive(shouldShowImage);
+
+            shouldShowImage = false;
         }
     }
 
