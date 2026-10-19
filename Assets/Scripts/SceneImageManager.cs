@@ -7,7 +7,7 @@ public class SceneImageManager : MonoBehaviour
     // A static variable retains its value across different scene changes
     public static bool shouldShowImage = false;
 
-    [Header("Scene 1 References")]
+    [Header("Shop Screen References")]
     public GameObject imageToActivate;
 
     private void Start()
@@ -28,6 +28,6 @@ public class SceneImageManager : MonoBehaviour
         shouldShowImage = true;
 
         // Load Scene 1 (Make sure the scene name matches exactly)
-        SceneManager.LoadScene("Scene 1");
+        SceneManager.LoadScene("Shop Screen");
     }
 }
