@@ -48,5 +48,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{dd9fe7a2-c833-442b-a28b-55b347e579e0}" />
 	<object class="MixerBusFader" id="{74de79b9-fcf8-474e-970c-2c6d9a57189c}" />
-	<object class="MultibandDynamicsEffect" id="{9d3182f7-4ba9-4c8e-929c-4a8779d26f14}" />
+	<object class="MultibandDynamicsEffect" id="{9d3182f7-4ba9-4c8e-929c-4a8779d26f14}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+	</object>
 </objects>

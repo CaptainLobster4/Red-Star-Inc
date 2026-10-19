@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI BulletText;
 
     // amount of bullets
-    public int bulletCount = 10;
+    public int bulletCount;
 
     // amount of bullets needed to cut out entire shape
     public float shapeAmount = 30f;
