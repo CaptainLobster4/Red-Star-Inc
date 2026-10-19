@@ -19,7 +19,7 @@ public enum AbilityType
 // Because it's consumed when the round STARTS, leaving mid-round can't keep it.
 public static class PlayerInventory
 {
-    private const string TicketsKey = "Tickets:";
+    private const string TicketsKey = "Tickets";
     private const string AbilityKey = "AbilityOwned_";
 
     // Abilities live for the current round. Never saved to disk.

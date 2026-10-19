@@ -29,39 +29,34 @@ public class BulletHole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameManager.bulletCount >= 0)
+        // Hit the shape: fill progress bar and count the bullet toward cutting out the shape
+        if (collision.gameObject == targetArea)
         {
-            // Hit the shape: fill progress bar and count the bullet toward cutting out the shape
-            if (collision.gameObject == targetArea)
-            {
-                if (gameManager == null) return;
-                gameManager.bulletCount--;
+            if (gameManager == null) return;
 
-                gameManager.UpdateProgress(baseProgress * progressMultiplier);
-                gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
-            }
-            // Hit a ticket balloon: it awards its own tickets and destroys itself
-            else
-            {
-                // GetComponentInParent so it still works if the Collider2D is on a child of the balloon
-                TicketBalloon balloon = collision.GetComponentInParent<TicketBalloon>();
-                if (balloon != null)
-                {
-                    balloon.Pop();
-                    gameManager.bulletCount--;
-                }
-            }
-
-            if (collision.gameObject.tag == "MetalLayer")
-            {
-                gameManager.bulletCount--;
-                metalL = collision.gameObject.GetComponent<metalLogic>();
-                metalL.health = metalL.health - 1;
-                Destroy(doubleShotInstance);
-                Destroy(gameObject);
-            }
-
+            gameManager.UpdateProgress(baseProgress * progressMultiplier);
+            gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
         }
+        // Hit a ticket balloon: it awards its own tickets and destroys itself
+        else
+        {
+            // GetComponentInParent so it still works if the Collider2D is on a child of the balloon
+            TicketBalloon balloon = collision.GetComponentInParent<TicketBalloon>();
+            if (balloon != null)
+            {
+                balloon.Pop();
+            }
+        }
+
+        if (collision.gameObject.tag == "MetalLayer")
+        {
+            metalL = collision.gameObject.GetComponent<metalLogic>();
+            metalL.health = metalL.health - 1;
+            Destroy(doubleShotInstance);
+            Destroy(gameObject);
+        }
+
+
     }
 
     private void Awake()
