@@ -8,7 +8,7 @@ public class TicketTracker : MonoBehaviour
     public TextMeshProUGUI TicketTotal;
 
     [Tooltip("Optional text shown before the number, e.g. \"Tickets: \"")]
-    public string prefix = "";
+    public string prefix = " ";
 
     public int Tickets => PlayerInventory.Tickets;
 
