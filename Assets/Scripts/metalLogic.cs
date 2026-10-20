@@ -5,16 +5,16 @@ public class metalLogic : MonoBehaviour
     public int health = 3;
     public Collider2D targetCollider;
     public SpriteRenderer spriteRenderer;
-    public Sprite metalSpriteBase;
-    public Sprite metalSpriteLightDMG;
-    public Sprite metealSpriteHeavyDMG;
+    public Sprite standardMetal;
+    public Sprite standardMetal1;
+    public Sprite standardMetal2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         targetCollider.enabled = false;
 
         //Sets starting sprite
-        spriteRenderer.sprite = metalSpriteBase;
+        spriteRenderer.sprite = standardMetal;
     }
 
     // Update is called once per frame
@@ -28,11 +28,11 @@ public class metalLogic : MonoBehaviour
 
         if (health == 2)
         {
-            spriteRenderer.sprite = metalSpriteLightDMG;
+            spriteRenderer.sprite = standardMetal1;
         }
         else if (health == 1)
         {
-            spriteRenderer.sprite = metealSpriteHeavyDMG;
+            spriteRenderer.sprite = standardMetal2;
         }
 
     }
