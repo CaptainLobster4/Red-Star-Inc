@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using FMODUnity;
 using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
+using TMPro;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class PlayerCharacter : MonoBehaviour
     public bool win = false;
     public bool lose = false;
 
+    private GameManager gameManager;
+
+    public float bulletCount = 30;
+    public TextMeshProUGUI bulletCountText;
+
+
 
     private void Awake()
     {
@@ -35,6 +42,9 @@ public class PlayerCharacter : MonoBehaviour
         // Starting health
 
         paperCollider = Paper.GetComponent<BoxCollider2D>();
+        gameManager = GetComponent<GameManager>();
+        bulletCountText.text = "Bullets: " + bulletCount;
+
     }
 
     void Update()
@@ -57,9 +67,27 @@ public class PlayerCharacter : MonoBehaviour
                     bulletScript.notOnPaper = true;
                 }
 
+                bulletCount = bulletCount - 1;
+                UpdateBulletCountText(bulletCount);
+
                     RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
             }
         }
+
+
+
+        if (bulletCount <= 0)
+        {
+            gameManager.TriggerLose();
+        }
     }
+
+
+    private void UpdateBulletCountText(float bulletCount)
+    {
+        bulletCountText.text = "Bullets: " + bulletCount;
+    }
+
+
 
 }
