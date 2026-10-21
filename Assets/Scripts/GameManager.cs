@@ -30,23 +30,6 @@ public class GameManager : MonoBehaviour
     [Tooltip("Optional. Text shown on a boss win when a collectible is unlocked for the first time.")]
     public TextMeshProUGUI collectibleUnlockedText;
 
-    [Header("Bullets")]
-    [Tooltip("How many shots the player gets this level. 0 = unlimited. Running out before the shape is done loses the level.")]
-    public int maxBullets = 0;
-
-    [Tooltip("After the last bullet is fired, seconds to wait for it to land before the level is lost.")]
-    public float outOfAmmoDelay = 0.75f;
-
-    [Header("Win Reward")]
-    [Tooltip("Tickets awarded for beating this level.")]
-    public int winTicketsBase = 20;
-
-    [Tooltip("Bonus tickets for every unused bullet when the level is won (only when Max Bullets is above 0).")]
-    public int ticketsPerBulletLeft = 2;
-
-    [Tooltip("Optional. Shows e.g. '+34 tickets' on a win.")]
-    public TextMeshProUGUI ticketRewardText;
-
     [Header("Level Transition")]
     [Tooltip("Exact scene name (as it appears in Build Settings) to load when this level is won. Set per-level in the Inspector - not tied to build order, so it stays correct once a level-select menu lets players jump around.")]
     public string nextSceneName;
@@ -63,11 +46,6 @@ public class GameManager : MonoBehaviour
     private PlayerCharacter playerCharacter;
     private bool levelOver = false;
     private bool loseTriggered = false;
-    private int bulletsLeft;
-    private float outOfAmmoTimer = 0f;
-
-    public int BulletsLeft => bulletsLeft;
-    public int ShotsFired { get; private set; }
 
 
     public void UpdateProgress(float newProgress)
@@ -93,10 +71,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // limited bullets (0 = unlimited)
-        bulletsLeft = maxBullets;
-        ShotsFired = 0;
-        UpdateBulletText();
+        // new round: abilities bought in the shop are used up now and last this round only
+        PlayerInventory.BeginRound();
 
         // current level
         // is boss fight?
@@ -135,22 +111,8 @@ public class GameManager : MonoBehaviour
 
             AwardBossCollectible();
 
-            AwardWinTickets();
-
             StartCoroutine(LoadNextSceneAfterDelay());
             return;
-        }
-
-        // out of bullets with the shape unfinished = lose (after a short wait so the last shot can land)
-        if (maxBullets > 0 && bulletsLeft <= 0)
-        {
-            outOfAmmoTimer += Time.deltaTime;
-            if (outOfAmmoTimer >= outOfAmmoDelay)
-            {
-                levelOver = true;
-                TriggerLose();
-                return;
-            }
         }
 
         // boss fights run on a timer instead of (or alongside) shape progress -
@@ -167,59 +129,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Called by every new BulletHole. Returns false if the player is out of bullets.
-    public bool TryUseBullet()
+    void OnDestroy()
     {
-        if (levelOver)
-        {
-            return false;
-        }
-
-        if (maxBullets > 0)
-        {
-            if (bulletsLeft <= 0)
-            {
-                return false;
-            }
-            bulletsLeft--;
-        }
-
-        ShotsFired++;
-        UpdateBulletText();
-        return true;
-    }
-
-    private void UpdateBulletText()
-    {
-        if (BulletText == null)
-        {
-            return;
-        }
-
-        BulletText.text = maxBullets > 0 ? "Bullets: " + bulletsLeft : "";
-    }
-
-    // Winning pays tickets: a base amount plus a bonus for every unused bullet
-    private void AwardWinTickets()
-    {
-        int reward = winTicketsBase;
-        if (maxBullets > 0)
-        {
-            reward += ticketsPerBulletLeft * Mathf.Max(0, bulletsLeft);
-        }
-
-        if (reward <= 0)
-        {
-            return;
-        }
-
-        PlayerInventory.AddTickets(reward);
-
-        if (ticketRewardText != null)
-        {
-            ticketRewardText.text = "+" + reward + " tickets";
-            ticketRewardText.gameObject.SetActive(true);
-        }
+        PlayerInventory.EndRound();
     }
 
     // Beating a boss level unlocks that boss's collectible (Boss.maskReward).
