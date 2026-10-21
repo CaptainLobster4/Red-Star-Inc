@@ -389,7 +389,7 @@ MonoBehaviour:
   - {fileID: 9144588734464916101, guid: 538896c7e88457849b2736a184e4e966, type: 3}
   TicketBalloonSpawnTimer: 4
   TicketBalloonDespawnTimer: 2
-  maxBalloonsPerRound: 3
+  maxBalloonsPerRound: 4
 --- !u!1 &162811318
 GameObject:
   m_ObjectHideFlags: 0

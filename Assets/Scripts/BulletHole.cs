@@ -4,7 +4,7 @@ public class BulletHole : MonoBehaviour
 {
     [Header("Shape Progress")]
     [Tooltip("Progress-bar fill added per bullet that lands in the target area")]
-    [SerializeField] private float baseProgress = 0.025f;
+    [SerializeField] private float baseProgress = 0.05f;
 
     [Header("Duckshot Ability")]
     [Tooltip("How much bigger the bullet hole (and its collider) is when Duckshot is equipped")]
