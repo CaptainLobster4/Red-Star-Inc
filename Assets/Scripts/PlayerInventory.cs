@@ -1,29 +1,26 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum AbilityType
 {
     Duckshot,
-    DoubleShot   // placeholder for the 2nd purchasable ability - rename once it's designed
+    SecondAbility   // placeholder for the 2nd purchasable ability - rename once it's designed
 }
 
-// Static save layer so tickets + purchased abilities survive scene loads
+// Static save layer so tickets + upgrades survive scene loads
 // (game scene <-> shop scene) and app restarts. Not a MonoBehaviour: nothing to attach.
 //
-// Abilities are single-round consumables:
-//   - Buying one "arms" it (saved, shows as Ready in the shop).
-//   - GameManager.Start() calls BeginRound(): armed abilities are used up on the spot
-//     (saved copy deleted) and become ACTIVE for that round only (memory only).
-//   - BulletHole etc. check IsActive(), never HasAbility().
-// Because it's consumed when the round STARTS, leaving mid-round can't keep it.
+// Abilities are PERMANENT, stackable upgrades (roguelike style):
+//   - Each purchase raises the ability's level by 1 (level 0 = not owned).
+//   - Levels are saved and never expire; they carry into every level.
+//   - Each owned ability can be switched ON/OFF before a round (default ON).
+//   - Gameplay scripts check IsActive() (owned AND switched on) and GetLevel() for strength.
 public static class PlayerInventory
 {
     private const string TicketsKey = "Tickets";
-    private const string AbilityKey = "AbilityOwned_";
-
-    // Abilities live for the current round. Never saved to disk.
-    private static readonly HashSet<AbilityType> activeThisRound = new HashSet<AbilityType>();
+    private const string AbilityLevelKey = "AbilityLevel_";
+    private const string AbilityEnabledKey = "AbilityEnabled_";
+    private const string OldAbilityKey = "AbilityOwned_"; // from the old one-round version, only cleared by ResetAll
 
     // UI scripts subscribe to these so they refresh automatically
     public static event Action<int> OnTicketsChanged;
@@ -54,72 +51,73 @@ public static class PlayerInventory
         OnTicketsChanged?.Invoke(value);
     }
 
-    // ---------- Abilities (single-round consumables) ----------
+    // ---------- Abilities (permanent, stackable upgrades) ----------
 
-    // Bought and waiting for the next round (what the shop shows as "Ready")
+    // 0 = not owned, 1+ = owned at that level
+    public static int GetLevel(AbilityType ability)
+    {
+        return PlayerPrefs.GetInt(AbilityLevelKey + ability, 0);
+    }
+
+    // Owned at any level (what the shop and the in-level buttons check)
     public static bool HasAbility(AbilityType ability)
     {
-        return PlayerPrefs.GetInt(AbilityKey + ability, 0) == 1;
+        return GetLevel(ability) > 0;
     }
 
-    // Working right now, this round only (what gameplay scripts should check)
+    // The player's on/off switch. Defaults to ON.
+    public static bool IsEnabled(AbilityType ability)
+    {
+        return PlayerPrefs.GetInt(AbilityEnabledKey + ability, 1) == 1;
+    }
+
+    public static void SetEnabled(AbilityType ability, bool enabled)
+    {
+        PlayerPrefs.SetInt(AbilityEnabledKey + ability, enabled ? 1 : 0);
+        PlayerPrefs.Save();
+        OnAbilitiesChanged?.Invoke();
+    }
+
+    // Working right now: owned AND switched on (what gameplay scripts should check)
     public static bool IsActive(AbilityType ability)
     {
-        return activeThisRound.Contains(ability);
+        return HasAbility(ability) && IsEnabled(ability);
     }
 
-    // Spends tickets and arms the ability for the next round.
-    // Returns false if already armed or the player can't afford it.
-    public static bool TryPurchase(AbilityType ability, int cost)
+    // Spends tickets and raises the ability one level (buying it the first time = level 1).
+    // maxLevel <= 0 means no cap. Returns false if at max level or the player can't afford it.
+    public static bool TryUpgrade(AbilityType ability, int cost, int maxLevel)
     {
-        if (HasAbility(ability)) return false;
+        int level = GetLevel(ability);
+        if (maxLevel > 0 && level >= maxLevel) return false;
         if (!TrySpendTickets(cost)) return false;
 
-        PlayerPrefs.SetInt(AbilityKey + ability, 1);
+        PlayerPrefs.SetInt(AbilityLevelKey + ability, level + 1);
+        if (level == 0)
+        {
+            PlayerPrefs.SetInt(AbilityEnabledKey + ability, 1); // newly bought starts switched on
+        }
         PlayerPrefs.Save();
         OnAbilitiesChanged?.Invoke();
         return true;
     }
 
-    // Call once when a round starts. Starts from a clean slate, then moves every
-    // armed ability into this round's active set and deletes the saved copy,
-    // so it has to be rebought for the next round.
-    public static void BeginRound()
-    {
-        activeThisRound.Clear();
+    // ---------- Legacy (kept so older scripts still compile; they do nothing now) ----------
+    // The one-round ability system was replaced by permanent upgrades.
 
-        bool anyConsumed = false;
-        foreach (AbilityType ability in Enum.GetValues(typeof(AbilityType)))
-        {
-            if (HasAbility(ability))
-            {
-                activeThisRound.Add(ability);
-                PlayerPrefs.DeleteKey(AbilityKey + ability);
-                anyConsumed = true;
-            }
-        }
-
-        if (anyConsumed)
-        {
-            PlayerPrefs.Save();
-            OnAbilitiesChanged?.Invoke();
-        }
-    }
-
-    // Call when the round's scene is torn down
-    public static void EndRound()
-    {
-        activeThisRound.Clear();
-    }
+    public static void BeginRound() { }
+    public static void EndRound() { }
+    public static void ClearAllAbilities() { }
 
     // Testing helper - wipes tickets and all abilities
     public static void ResetAll()
     {
-        activeThisRound.Clear();
         PlayerPrefs.DeleteKey(TicketsKey);
         foreach (AbilityType ability in Enum.GetValues(typeof(AbilityType)))
         {
-            PlayerPrefs.DeleteKey(AbilityKey + ability);
+            PlayerPrefs.DeleteKey(AbilityLevelKey + ability);
+            PlayerPrefs.DeleteKey(AbilityEnabledKey + ability);
+            PlayerPrefs.DeleteKey(OldAbilityKey + ability);
         }
         PlayerPrefs.Save();
         OnTicketsChanged?.Invoke(0);
