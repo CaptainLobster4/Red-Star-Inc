@@ -389,7 +389,7 @@ MonoBehaviour:
   - {fileID: 9144588734464916101, guid: 538896c7e88457849b2736a184e4e966, type: 3}
   TicketBalloonSpawnTimer: 4
   TicketBalloonDespawnTimer: 2
-  maxBalloonsPerRound: 3
+  maxBalloonsPerRound: 4
 --- !u!1 &162811318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: -234}
+  m_AnchoredPosition: {x: -315, y: -149}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &754486774
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU WIN!!!
+  m_text: YOU WIN!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1289,8 +1289,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 220
-  m_fontSizeBase: 220
+  m_fontSize: 145
+  m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1342,6 +1342,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754486772}
   m_CullTransparentMesh: 1
+--- !u!1 &774851184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774851186}
+  - component: {fileID: 774851185}
+  m_Layer: 0
+  m_Name: ImageManagerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &774851185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774851184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464d917c25bb35040b0be88e26edaf0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneImageManager
+  imageToActivate: {fileID: 2030667963}
+--- !u!4 &774851186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774851184}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 907.726, y: 586.4898, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1068103614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1505,7 +1550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -297, y: -234}
+  m_AnchoredPosition: {x: -315, y: -154}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130724159
@@ -1528,7 +1573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: you lost...
+  m_text: YOU LOST...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1555,8 +1600,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 220
-  m_fontSizeBase: 220
+  m_fontSize: 145
+  m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1594,7 +1639,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -1071.0818, w: -222.70007}
+  m_margin: {x: 0, y: 0, z: -643.5212, w: -222.70007}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2672,12 +2717,12 @@ GameObject:
   - component: {fileID: 1903831548}
   - component: {fileID: 1903831547}
   m_Layer: 5
-  m_Name: Ability1
+  m_Name: DoubleShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1903831546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2747,12 +2792,12 @@ GameObject:
   - component: {fileID: 2030667966}
   - component: {fileID: 2030667965}
   m_Layer: 5
-  m_Name: Ability2
+  m_Name: Slug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030667964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3015,6 +3060,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9861032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0169662
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5130867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508917051549419426, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3059,14 +3116,39 @@ PrefabInstance:
       value: MetalSheet
       objectReference: {fileID: 0}
     - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1574618152248317675}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: targetCollider
       value: 
       objectReference: {fileID: 1688187357}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: metalSpriteBase
+      value: 
+      objectReference: {fileID: 6564371504608450398, guid: 095a428b77b0fd6428081eade0b03c71, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: metalSpriteLightDMG
+      value: 
+      objectReference: {fileID: -4004560948593935500, guid: b44e7aeae6414d241924903879406ad2, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: metealSpriteHeavyDMG
+      value: 
+      objectReference: {fileID: -168793587822446694, guid: 3c2725fb0cc3cd940811f4bf4846d243, type: 3}
+    - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6564371504608450398, guid: 095a428b77b0fd6428081eade0b03c71, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+--- !u!212 &1574618152248317675 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+  m_PrefabInstance: {fileID: 1574618152248317674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3082,3 +3164,4 @@ SceneRoots:
   - {fileID: 1213390643}
   - {fileID: 1574618152248317674}
   - {fileID: 2032526844}
+  - {fileID: 774851186}

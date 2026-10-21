@@ -13,7 +13,7 @@ public class ShopMenu : MonoBehaviour
     {
         public AbilityType ability;
         public string displayName = "Duckshot";
-        public int cost = 50;
+        public int cost = 20;
 
         [Tooltip("Untick for abilities that aren't ready yet - the button shows 'Coming Soon' and is disabled.")]
         public bool available = true;
