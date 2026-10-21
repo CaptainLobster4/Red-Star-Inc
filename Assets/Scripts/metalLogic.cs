@@ -2,38 +2,57 @@ using UnityEngine;
 
 public class metalLogic : MonoBehaviour
 {
-    public int health = 3;
+    public int maxHealth = 3;
+    public int health;
     public Collider2D targetCollider;
     public SpriteRenderer spriteRenderer;
-    public Sprite standardMetal;
-    public Sprite standardMetal1;
-    public Sprite standardMetal2;
+    public Sprite[] metalSprites;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        health = maxHealth;
+
         targetCollider.enabled = false;
 
         //Sets starting sprite
-        spriteRenderer.sprite = standardMetal;
+        spriteRenderer.sprite = metalSprites[0];
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void TakeDamage(int damage)
     {
-        if (health <= 0)
+        if (health <= 0 || damage <= 0)
         {
-            targetCollider.enabled = true;
-            Destroy(gameObject);
+            return;
         }
 
-        if (health == 2)
+        health -= damage;
+
+        if (health <= 0)
         {
-            spriteRenderer.sprite = standardMetal1;
+            health = 0;
+            targetCollider.enabled = true;
+            Destroy(gameObject);
+            return;
         }
-        else if (health == 1)
+
+        UpdateDamageSprite();
+
+
+    }
+
+    void UpdateDamageSprite()
+    {
+        if (health <= 0 || maxHealth <= 0 || metalSprites == null || metalSprites.Length == 0)
         {
-            spriteRenderer.sprite = standardMetal2;
+            return;
         }
+
+        int spriteIndex = (maxHealth - health) * metalSprites.Length / maxHealth;
+
+        spriteIndex = Mathf.Clamp(spriteIndex, 0, metalSprites.Length - 1);
+
+        spriteRenderer.sprite = metalSprites[spriteIndex];
 
     }
 }

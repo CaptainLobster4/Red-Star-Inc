@@ -51,7 +51,7 @@ public class BulletHole : MonoBehaviour
         if (collision.gameObject.tag == "MetalLayer")
         {
             metalL = collision.gameObject.GetComponent<metalLogic>();
-            metalL.health = metalL.health - 1;
+            metalL.TakeDamage(1);
             Destroy(doubleShotInstance);
             Destroy(gameObject);
         }
