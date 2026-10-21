@@ -21,7 +21,7 @@ public class CheckOverlap : MonoBehaviour
         // iterate through and take out points from point list if they overlap
         // easy math, return percentage
 
-        Vector2[] points = CreateGrid();
+        //Vector2[] points = CreateGrid();
     }
 
     void Update()

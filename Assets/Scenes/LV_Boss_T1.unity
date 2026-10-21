@@ -262,7 +262,7 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   win: 0
   lose: 0
-  bulletCount: 30
+  bulletCount: 25
   bulletCountText: {fileID: 1367315883}
 --- !u!114 &144996829
 MonoBehaviour:

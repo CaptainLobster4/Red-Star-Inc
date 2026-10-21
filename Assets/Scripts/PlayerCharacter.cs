@@ -6,6 +6,10 @@ using NUnit.Framework.Constraints;
 using Unity.VisualScripting;
 using TMPro;
 
+
+// this script manages bullet count, every time you click the bullet count goes down, and if it reaches zero it calls TriggerLose in game manager
+// bullet count for each level can be changed in inspector for the scene, in player character on main camera
+
 public class PlayerCharacter : MonoBehaviour
 {
 
@@ -26,7 +30,6 @@ public class PlayerCharacter : MonoBehaviour
 
     public float bulletCount = 30;
     public TextMeshProUGUI bulletCountText;
-
 
 
     private void Awake()
