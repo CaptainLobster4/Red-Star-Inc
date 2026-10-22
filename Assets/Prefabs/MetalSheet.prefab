@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8412160775492283756}
   - component: {fileID: 8238070163850237909}
   - component: {fileID: 3229650841789109487}
+  - component: {fileID: 1804481251583287654}
   m_Layer: 0
   m_Name: MetalSheet
   m_TagString: MetalLayer
@@ -114,6 +115,20 @@ MonoBehaviour:
   - {fileID: -1171864869635467598, guid: 063dedeabf4f37f4bab58a2278c72075, type: 3}
   - {fileID: -6202146074213848036, guid: bc0af6c55e34f2149aed20a2103a5f58, type: 3}
   - {fileID: -7306195509779670787, guid: a7c5fa37402a7b747b80e0acf48a916a, type: 3}
+  metalPing:
+    Guid:
+      Data1: 1672727067
+      Data2: 1251850827
+      Data3: 1047916951
+      Data4: 584083629
+    Path: event:/SFX/Mechanics/Shot blocked
+  metalBreak:
+    Guid:
+      Data1: -732590418
+      Data2: 1294284842
+      Data3: 130431131
+      Data4: -1045229635
+    Path: event:/SFX/Mechanics/Block break
 --- !u!60 &3229650841789109487
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +182,34 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 1
+--- !u!114 &1804481251583287654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537096053061354520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1672727067
+      Data2: 1251850827
+      Data3: 1047916951
+      Data4: 584083629
+    Path: event:/SFX/Mechanics/Shot blocked
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

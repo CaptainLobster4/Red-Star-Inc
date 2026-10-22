@@ -1,4 +1,6 @@
 using UnityEngine;
+using FMODUnity;
+using Unity.VisualScripting;
 
 public class metalLogic : MonoBehaviour
 {
@@ -7,6 +9,10 @@ public class metalLogic : MonoBehaviour
     public Collider2D targetCollider;
     public SpriteRenderer spriteRenderer;
     public Sprite[] metalSprites;
+
+    [Header("Metal Sound Effects")]
+    [SerializeField] private EventReference metalPing;
+    [SerializeField] private EventReference metalBreak;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,9 +38,14 @@ public class metalLogic : MonoBehaviour
         {
             health = 0;
             targetCollider.enabled = true;
+
+            RuntimeManager.PlayOneShot(metalBreak, transform.position);
+
             Destroy(gameObject);
             return;
         }
+
+        RuntimeManager.PlayOneShot(metalPing, transform.position);
 
         UpdateDamageSprite();
 

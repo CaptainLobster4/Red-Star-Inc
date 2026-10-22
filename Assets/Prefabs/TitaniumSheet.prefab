@@ -114,6 +114,20 @@ MonoBehaviour:
   - {fileID: 7014059782292796626, guid: 60d32668b6ec661429a6a719c7bc4f8c, type: 3}
   - {fileID: 1093499337639463364, guid: 6fa24fe1494fc024482584663405478b, type: 3}
   - {fileID: -4939639454663944896, guid: 50c41d066866dc743aebec01c0cdc814, type: 3}
+  metalPing:
+    Guid:
+      Data1: 1672727067
+      Data2: 1251850827
+      Data3: 1047916951
+      Data4: 584083629
+    Path: event:/SFX/Mechanics/Shot blocked
+  metalBreak:
+    Guid:
+      Data1: -732590418
+      Data2: 1294284842
+      Data3: 130431131
+      Data4: -1045229635
+    Path: event:/SFX/Mechanics/Block break
 --- !u!60 &3229650841789109487
 PolygonCollider2D:
   m_ObjectHideFlags: 0
