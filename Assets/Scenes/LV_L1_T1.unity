@@ -262,6 +262,8 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   win: 0
   lose: 0
+  bulletCount: 25
+  bulletCountText: {fileID: 1367315883}
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2059,7 +2061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bullets: xx'
+  m_text: 'Bullets: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

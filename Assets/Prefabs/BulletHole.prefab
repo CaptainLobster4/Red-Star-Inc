@@ -171,12 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e2d518a89756a40b7e050b8d549c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletHole1
-  baseProgress: 0.025
+  baseProgress: 0.05
   duckshotScale: 2.5
   duckshotProgressMultiplier: 2
   doubleshotProgressMultiplier: 2
   DoubleShotBulletHole: {fileID: 4660533273157339134, guid: 76d12d76dffee994484c848533387fe2, type: 3}
   metalL: {fileID: 0}
+  notOnPaper: 0
 --- !u!114 &2492610638076030030
 MonoBehaviour:
   m_ObjectHideFlags: 0
