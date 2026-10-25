@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Comedy
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleData
   collectibleName: Comedy
-  icon: {fileID: 6660783624410144326, guid: 946bd7253d0f16d4e881ea218e88f5c1, type: 3}
+  icon: {fileID: -7094866035977202738, guid: 5e2ad48e024cf4d4b9f1e3492fb9dce2, type: 3}
   storyText: 'They say laughter is the best medicine, but what happens when taken
     too far? When all is a joke and the world is the punchline.
 
