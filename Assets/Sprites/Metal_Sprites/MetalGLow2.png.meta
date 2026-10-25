@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 095a428b77b0fd6428081eade0b03c71
+guid: 11ed243231fa1bc4cbdc0bba8b26944a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6564371504608450398
-    second: MetalSpriteBase_0
+      213: -7569498069845926359
+    second: MetalGLow2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MetalSpriteBase_0
+      name: MetalGLow2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5712e99a15591b50800000000000000
-      internalID: 6564371504608450398
+      spriteID: 92e14d24c9db3f690800000000000000
+      internalID: -7569498069845926359
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MetalSpriteBase_0: 6564371504608450398
+      MetalGLow2_0: -7569498069845926359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

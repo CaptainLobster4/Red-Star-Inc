@@ -1,39 +1,69 @@
 using UnityEngine;
+using FMODUnity;
+using Unity.VisualScripting;
 
 public class metalLogic : MonoBehaviour
 {
-    public int health = 3;
+    public int maxHealth = 3;
+    public int health;
     public Collider2D targetCollider;
     public SpriteRenderer spriteRenderer;
-    public Sprite metalSpriteBase;
-    public Sprite metalSpriteLightDMG;
-    public Sprite metealSpriteHeavyDMG;
+    public Sprite[] metalSprites;
+
+    [Header("Metal Sound Effects")]
+    [SerializeField] private EventReference metalPing;
+    [SerializeField] private EventReference metalBreak;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        health = maxHealth;
+
         targetCollider.enabled = false;
 
         //Sets starting sprite
-        spriteRenderer.sprite = metalSpriteBase;
+        spriteRenderer.sprite = metalSprites[0];
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void TakeDamage(int damage)
     {
-        if (health <= 0)
+        if (health <= 0 || damage <= 0)
         {
-            targetCollider.enabled = true;
-            Destroy(gameObject);
+            return;
         }
 
-        if (health == 2)
+        health -= damage;
+
+        if (health <= 0)
         {
-            spriteRenderer.sprite = metalSpriteLightDMG;
+            health = 0;
+            targetCollider.enabled = true;
+
+            RuntimeManager.PlayOneShot(metalBreak, transform.position);
+
+            Destroy(gameObject);
+            return;
         }
-        else if (health == 1)
+
+        RuntimeManager.PlayOneShot(metalPing, transform.position);
+
+        UpdateDamageSprite();
+
+
+    }
+
+    void UpdateDamageSprite()
+    {
+        if (health <= 0 || maxHealth <= 0 || metalSprites == null || metalSprites.Length == 0)
         {
-            spriteRenderer.sprite = metealSpriteHeavyDMG;
+            return;
         }
+
+        int spriteIndex = (maxHealth - health) * metalSprites.Length / maxHealth;
+
+        spriteIndex = Mathf.Clamp(spriteIndex, 0, metalSprites.Length - 1);
+
+        spriteRenderer.sprite = metalSprites[spriteIndex];
 
     }
 }

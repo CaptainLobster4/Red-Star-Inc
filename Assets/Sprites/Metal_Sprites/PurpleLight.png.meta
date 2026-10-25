@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3c2725fb0cc3cd940811f4bf4846d243
+guid: 806059e4faa103d4284a0151d5f85324
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -168793587822446694
-    second: MetalSpriteHeavyDMG_0
+      213: -4746174580132600189
+    second: PurpleLight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MetalSpriteHeavyDMG_0
+      name: PurpleLight_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 276
+        height: 276
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a97ba7d402358adf0800000000000000
-      internalID: -168793587822446694
+      spriteID: 386253d9d53322eb0800000000000000
+      internalID: -4746174580132600189
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MetalSpriteHeavyDMG_0: -168793587822446694
+      PurpleLight_0: -4746174580132600189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

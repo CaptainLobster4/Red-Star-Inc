@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9999 tickets
+  m_text: 40 tickets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -440,9 +440,20 @@ MonoBehaviour:
   abilities:
   - ability: 0
     displayName: 
-    cost: 0
+    cost: 20
+    costIncreasePerLevel: 10
+    maxLevel: 5
     available: 1
     button: {fileID: 2094291202}
+    nameLabel: {fileID: 0}
+    buttonLabel: {fileID: 0}
+  - ability: 1
+    displayName: 
+    cost: 40
+    costIncreasePerLevel: 0
+    maxLevel: 1
+    available: 1
+    button: {fileID: 882789121}
     nameLabel: {fileID: 0}
     buttonLabel: {fileID: 0}
   messageText: {fileID: 0}

@@ -6,11 +6,11 @@ public class BulletHole : MonoBehaviour
     [Tooltip("Progress-bar fill added per bullet that lands in the target area")]
     [SerializeField] private float baseProgress = 0.05f;
 
-    [Header("Duckshot Ability")]
-    [Tooltip("How much bigger the bullet hole (and its collider) is when Duckshot is equipped")]
-    [SerializeField] private float duckshotScale = 2.5f;
-    [Tooltip("Progress multiplier while Duckshot is equipped. A trigger only fires once per bullet, so without this a wider hole would count the same as a normal one.")]
-    [SerializeField] private float duckshotProgressMultiplier = 2f;
+    [Header("Duckshot Ability (permanent upgrade, stronger per level)")]
+    [Tooltip("How much bigger the bullet hole (and its collider) gets per Duckshot level. Level 3 with 0.3 = 1.9x size.")]
+    [SerializeField] private float duckshotScalePerLevel = 0.3f;
+    [Tooltip("Extra progress per bullet, per Duckshot level. Level 3 with 0.2 = 1.6x progress. A trigger only fires once per bullet, so without this a wider hole would count the same as a normal one.")]
+    [SerializeField] private float duckshotProgressPerLevel = 0.2f;
 
     [Header("Double Shot Ability")]
     [Tooltip("Progress multiplier while Double Shot is equipped. A trigger only fires once per bullet (which in this case is two bullet holes), so multiply by two.")]
@@ -51,7 +51,7 @@ public class BulletHole : MonoBehaviour
         if (collision.gameObject.tag == "MetalLayer")
         {
             metalL = collision.gameObject.GetComponent<metalLogic>();
-            metalL.health = metalL.health - 1;
+            metalL.TakeDamage(1);
             Destroy(doubleShotInstance);
             Destroy(gameObject);
         }
@@ -66,20 +66,26 @@ public class BulletHole : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
 
 
-        // Duckshot (bought in the shop, lasts one round): scale the whole bullet hole up so it covers a wider area
+        // Abilities are permanent upgrades the player can switch on/off (IsActive = owned AND switched on).
+        float sizeScale = 1f;
+
+        // Duckshot: scale the whole bullet hole up so it covers a wider area, more per level
         // (sprite + collider scale together, so it also pops balloons more easily)
         if (PlayerInventory.IsActive(AbilityType.Duckshot))
         {
-            transform.localScale *= duckshotScale;
-            progressMultiplier = duckshotProgressMultiplier;
+            int level = PlayerInventory.GetLevel(AbilityType.Duckshot);
+            sizeScale = 1f + duckshotScalePerLevel * level;
+            transform.localScale *= sizeScale;
+            progressMultiplier *= 1f + duckshotProgressPerLevel * level;
         }
 
-        if (PlayerInventory.IsActive(AbilityType.DoubleShot))
+        if (PlayerInventory.IsActive(AbilityType.DoubleShot) && DoubleShotBulletHole != null)
         {
-                // doubleShotOffset is the offset that the second shot is from the first. currently, it is set to be just to the right, but it can be changed
-                doubleShotOffset = new Vector2(0.3f, 0f);
-                doubleShotInstance = Instantiate(DoubleShotBulletHole, (new Vector2(transform.position.x, transform.position.y)) + doubleShotOffset, Quaternion.identity);
-                progressMultiplier = doubleshotProgressMultiplier;
+            // doubleShotOffset is the offset that the second shot is from the first. currently, it is set to be just to the right, but it can be changed
+            doubleShotOffset = new Vector2(0.3f, 0f);
+            doubleShotInstance = Instantiate(DoubleShotBulletHole, (new Vector2(transform.position.x, transform.position.y)) + doubleShotOffset, Quaternion.identity);
+            doubleShotInstance.transform.localScale *= sizeScale; // match Duckshot's size if both are on
+            progressMultiplier *= doubleshotProgressMultiplier;   // stacks with Duckshot instead of replacing it
         }
 
     }
