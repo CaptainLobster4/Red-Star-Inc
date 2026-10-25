@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
     [Tooltip("Optional. Text shown on a boss win when a collectible is unlocked for the first time.")]
     public TextMeshProUGUI collectibleUnlockedText;
 
+    [Header("Win Reward")]
+    [Tooltip("Tickets awarded for beating this level.")]
+    public int winTicketsBase = 20;
+
+    [Tooltip("Bonus tickets for every unused bullet when the level is won (bullets are counted by PlayerCharacter on the Main Camera).")]
+    public int ticketsPerBulletLeft = 2;
+
+    [Tooltip("Optional. Shows e.g. '+34 tickets' on a win.")]
+    public TextMeshProUGUI ticketRewardText;
+
     [Header("Level Transition")]
     [Tooltip("Exact scene name (as it appears in Build Settings) to load when this level is won. Set per-level in the Inspector - not tied to build order, so it stays correct once a level-select menu lets players jump around.")]
     public string nextSceneName;
@@ -71,9 +81,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // new round: abilities bought in the shop are used up now and last this round only
-        PlayerInventory.BeginRound();
-
         // current level
         // is boss fight?
         // equipped gun
@@ -110,6 +117,7 @@ public class GameManager : MonoBehaviour
             playerCharacter.win = true;
 
             AwardBossCollectible();
+            AwardWinTickets();
 
             StartCoroutine(LoadNextSceneAfterDelay());
             return;
@@ -129,9 +137,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    // Winning pays tickets: a base amount plus a bonus for every unused bullet
+    private void AwardWinTickets()
     {
-        PlayerInventory.EndRound();
+        int bulletsLeft = playerCharacter != null ? Mathf.Max(0, Mathf.FloorToInt(playerCharacter.bulletCount)) : 0;
+        int reward = winTicketsBase + ticketsPerBulletLeft * bulletsLeft;
+
+        if (reward <= 0)
+        {
+            return;
+        }
+
+        PlayerInventory.AddTickets(reward);
+
+        if (ticketRewardText != null)
+        {
+            ticketRewardText.text = "+" + reward + " tickets";
+            ticketRewardText.gameObject.SetActive(true);
+        }
     }
 
     // Beating a boss level unlocks that boss's collectible (Boss.maskReward).
@@ -163,6 +186,12 @@ public class GameManager : MonoBehaviour
     {
         // guard so a second call (e.g. from another script) can't start a second scene load
         if (loseTriggered)
+        {
+            return;
+        }
+
+        // a level that was already won can't be lost afterwards (e.g. bullets hitting 0 right as the shape finishes)
+        if (playerCharacter != null && playerCharacter.win)
         {
             return;
         }

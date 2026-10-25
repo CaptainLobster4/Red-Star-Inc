@@ -31,6 +31,15 @@ public class PlayerCharacter : MonoBehaviour
     public float bulletCount = 30;
     public TextMeshProUGUI bulletCountText;
 
+    [Tooltip("After the last bullet is fired, seconds to wait for it to land before the level is lost (so the last shot can still win).")]
+    public float outOfAmmoDelay = 0.75f;
+
+    private float startingBullets;
+    private float outOfAmmoTimer = 0f;
+
+    // How many shots have been fired this level (the ability buttons lock once this is above 0)
+    public int ShotsFired => Mathf.RoundToInt(startingBullets - bulletCount);
+
 
     private void Awake()
     {
@@ -45,7 +54,9 @@ public class PlayerCharacter : MonoBehaviour
         // Starting health
 
         paperCollider = Paper.GetComponent<BoxCollider2D>();
-        gameManager = GetComponent<GameManager>();
+        // GameManager is usually on a different object than the camera, so GetComponent<GameManager>() found nothing
+        gameManager = FindAnyObjectByType<GameManager>();
+        startingBullets = bulletCount;
         bulletCountText.text = "Bullets: " + bulletCount;
 
     }
@@ -73,15 +84,20 @@ public class PlayerCharacter : MonoBehaviour
                 bulletCount = bulletCount - 1;
                 UpdateBulletCountText(bulletCount);
 
-                    RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
+                RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
             }
         }
 
 
 
-        if (bulletCount <= 0)
+        // out of bullets: wait a moment so the last shot can land (and still win), then lose
+        if (bulletCount <= 0 && win == false && lose == false)
         {
-            gameManager.TriggerLose();
+            outOfAmmoTimer += Time.deltaTime;
+            if (outOfAmmoTimer >= outOfAmmoDelay && gameManager != null)
+            {
+                gameManager.TriggerLose();
+            }
         }
     }
 

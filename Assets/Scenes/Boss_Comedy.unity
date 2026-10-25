@@ -211,6 +211,9 @@ MonoBehaviour:
   isBossLevel: 1
   currentBoss: {fileID: 533914937}
   collectibleUnlockedText: {fileID: 0}
+  winTicketsBase: 20
+  ticketsPerBulletLeft: 2
+  ticketRewardText: {fileID: 0}
   nextSceneName: Win Screen
   winDelay: 1.5
   loseSceneName: Lose Screen
@@ -262,6 +265,9 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   win: 0
   lose: 0
+  bulletCount: 30
+  bulletCountText: {fileID: 1367315883}
+  outOfAmmoDelay: 0.75
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,8 +889,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280361251
+  m_fontColor: {r: 0.13836467, g: 0.12748694, b: 0.12748694, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -907,7 +913,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 3
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1147,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64573, y: 0.1282657}
   m_AnchorMax: {x: 0.77217644, y: 0.22382814}
-  m_AnchoredPosition: {x: 215.54999, y: -3.2614746}
+  m_AnchoredPosition: {x: 171.78998, y: -3.2615967}
   m_SizeDelta: {x: -10.6757, y: -6.5231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625022947
