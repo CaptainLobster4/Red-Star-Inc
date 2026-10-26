@@ -3696,9 +3696,33 @@ PrefabInstance:
       value: MetalSheet
       objectReference: {fileID: 0}
     - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: targetCollider
       value: 
       objectReference: {fileID: 1688187357}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: 'metalSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -8847375896155001934, guid: b933907c9082c3545ba9f94ccbb58c3b, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: 'metalSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3537701891118071080, guid: 698c24e79e7cc1c42900cb98cd285358, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: 'metalSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -5426274621009494591, guid: 8a25587f590aaa84fbb6962b9ca82fb1, type: 3}
+    - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8847375896155001934, guid: b933907c9082c3545ba9f94ccbb58c3b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -3430,6 +3430,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3229650841789109487, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229650841789109487, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.56
+      objectReference: {fileID: 0}
     - target: {fileID: 7537096053061354520, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: m_Name
       value: MetalSheet
@@ -3458,10 +3466,34 @@ PrefabInstance:
       propertyPath: metealSpriteHeavyDMG
       value: 
       objectReference: {fileID: -168793587822446694, guid: 3c2725fb0cc3cd940811f4bf4846d243, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: 'metalSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7569498069845926359, guid: 11ed243231fa1bc4cbdc0bba8b26944a, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: 'metalSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8299093627101759365, guid: add559ea65390c648b2e2e5bc37c7338, type: 3}
+    - target: {fileID: 8238070163850237909, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: 'metalSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -9195140093690520839, guid: 91baa680435e8e04196598b6cddf3374, type: 3}
+    - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
     - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6564371504608450398, guid: 095a428b77b0fd6428081eade0b03c71, type: 3}
+      objectReference: {fileID: -7569498069845926359, guid: 11ed243231fa1bc4cbdc0bba8b26944a, type: 3}
+    - target: {fileID: 8412160775492283756, guid: 1439ed484c636cb4ba86d2c40f847b2f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
