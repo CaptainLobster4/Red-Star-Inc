@@ -27,14 +27,18 @@ public class BulletHole : MonoBehaviour
     public metalLogic metalL;
     public bool notOnPaper = false;
 
+    // checking for overlap
+    private bool overlapping = false;
+    private bool hitTarget = false;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Hit the shape: fill progress bar and count the bullet toward cutting out the shape
         if (collision.gameObject == targetArea)
         {
             if (gameManager == null) return;
-
-            gameManager.UpdateProgress(baseProgress * progressMultiplier);
+            hitTarget = true;
             gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
         }
         // Hit a ticket balloon: it awards its own tickets and destroys itself
@@ -55,6 +59,20 @@ public class BulletHole : MonoBehaviour
             Destroy(doubleShotInstance);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Collider2D myCollider = GetComponent<Collider2D>();
+            //Debug.Log("overlapping other bullet");
+
+            // check if overlapping collider center is within this collider
+            if (myCollider.bounds.Contains(collision.gameObject.transform.position))
+            {
+                overlapping = true;
+                //Debug.Log("overlappinggg");
+            }
+        }
+
 
 
     }
@@ -98,5 +116,12 @@ public class BulletHole : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             Destroy(doubleShotInstance);
         }
+
+        if (!overlapping && hitTarget)
+        {
+            gameManager.UpdateProgress(baseProgress * progressMultiplier);
+            hitTarget = false;
+        }
+
     }
 }
