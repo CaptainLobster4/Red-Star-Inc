@@ -12,31 +12,31 @@ EditorBuildSettings:
     path: Assets/Scenes/Collected Screen.unity
     guid: 71b6ffc31897b494ab857158ff71c618
   - enabled: 1
-    path: Assets/Scenes/LV_L1_T1.unity
+    path: Assets/Scenes/Levels/LV_L1_T1.unity
     guid: c51ac691edfe8ec4080cbb80bce60f71
   - enabled: 1
-    path: Assets/Scenes/Shop Screen.unity
+    path: Assets/Scenes/Levels/Shop Screens/Shop Screen.unity
     guid: 9b509bdda2d6d994abbdef1998fb41a7
   - enabled: 1
-    path: Assets/Scenes/Tier 1 Levl 1 Win Screen.unity
+    path: Assets/Scenes/Levels/Win Screens/Tier 1 Levl 1 Win Screen.unity
     guid: 85ea713d243185046a5f8f715106cc19
   - enabled: 1
-    path: Assets/Scenes/LV_L2_T1.unity
+    path: Assets/Scenes/Levels/LV_L2_T1.unity
     guid: 24bb78fc683c64d4f959a0efbce68269
   - enabled: 1
-    path: Assets/Scenes/Tier 1 Level 2 Win Screen.unity
+    path: Assets/Scenes/Levels/Win Screens/Tier 1 Level 2 Win Screen.unity
     guid: 56421d9eb5fe9554e8cd6f074ec32bfb
   - enabled: 1
-    path: Assets/Scenes/Shop Screen 2 to 3.unity
+    path: Assets/Scenes/Levels/Shop Screens/Shop Screen 2 to 3.unity
     guid: b772f80ad5382bb4c8018fcb363b4645
   - enabled: 1
-    path: Assets/Scenes/LV_Boss_T1.unity
+    path: Assets/Scenes/Levels/Bosses/LV_Boss_T1.unity
     guid: 7c2ff1f4caf7ca64e86b7c5041b73919
   - enabled: 1
-    path: Assets/Scenes/Boss_Comedy.unity
+    path: Assets/Scenes/Prototypes/Boss_Comedy.unity
     guid: 4302604ed5bcc9b479ceb8be27ae75ed
   - enabled: 1
-    path: Assets/Scenes/Tier 1 Boss Win Screen.unity
+    path: Assets/Scenes/Levels/Win Screens/Tier 1 Boss Win Screen.unity
     guid: beb08b3f50a6b814290b34629e122251
   - enabled: 1
     path: Assets/Scenes/Lose Screen.unity

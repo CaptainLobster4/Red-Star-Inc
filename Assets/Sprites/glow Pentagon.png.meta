@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f62d05ec4384ffa4e9d8625d9bff8092
+guid: 33361e0c62efdf544b8354d9833c30dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7028616704906629411
-    second: 7_0
+      213: -6393023051272900170
+    second: glow Pentagon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 7_0
+      name: glow Pentagon_0
       rect:
         serializedVersion: 2
-        x: 104
-        y: 39
-        width: 797
-        height: 898
+        x: 5
+        y: 0
+        width: 799
+        height: 769
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 321165667a9aa8160800000000000000
-      internalID: 7028616704906629411
+      spriteID: 6b1bef3186b6747a0800000000000000
+      internalID: -6393023051272900170
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      7_0: 7028616704906629411
+      glow Pentagon_0: -6393023051272900170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

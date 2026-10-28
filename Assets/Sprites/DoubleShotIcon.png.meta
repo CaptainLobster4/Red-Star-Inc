@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e115f105ff5d25e46bbca7c2e2f5636d
+guid: 9f1b5f91dea4ef844842c84b160b7009
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4113829005332862926
-    second: 9_0
+      213: 1508808158738595956
+    second: DoubleShotIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9_0
+      name: DoubleShotIcon_0
       rect:
         serializedVersion: 2
-        x: 104
-        y: 39
-        width: 797
-        height: 898
+        x: 211
+        y: 324
+        width: 647
+        height: 454
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec750913fa1471930800000000000000
-      internalID: 4113829005332862926
+      spriteID: 47043dfb60d50f410800000000000000
+      internalID: 1508808158738595956
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      9_0: 4113829005332862926
+      DoubleShotIcon_0: 1508808158738595956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
