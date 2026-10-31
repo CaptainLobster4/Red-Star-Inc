@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// keep track of bullet count
-// instantiate gun and target
-// UI tracking (tickets, target progress, current equipped gun, current level, and collectibles)
+
 public class GameManager : MonoBehaviour
 {
     // progress bar fill
     public Image fillImage;
 
-    // UI text assignments
+    // UI texts
     public TextMeshProUGUI winText;
     public TextMeshProUGUI loseText;
     public TextMeshProUGUI BulletText;
@@ -20,37 +18,37 @@ public class GameManager : MonoBehaviour
     // amount of bullets
     public int bulletCount;
 
-    // amount of bullets needed to cut out entire shape
+    // max bullets
     public float shapeAmount = 30f;
 
     [Header("Boss Fight")]
     public bool isBossLevel;
-    public Boss currentBoss; // assign in Inspector on boss levels
+    public Boss currentBoss;
 
-    [Tooltip("Optional. Text shown on a boss win when a collectible is unlocked for the first time.")]
+
     public TextMeshProUGUI collectibleUnlockedText;
 
     [Header("Win Reward")]
-    [Tooltip("Tickets awarded for beating this level.")]
+
     public int winTicketsBase = 20;
 
-    [Tooltip("Bonus tickets for every unused bullet when the level is won (bullets are counted by PlayerCharacter on the Main Camera).")]
+
     public int ticketsPerBulletLeft = 2;
 
-    [Tooltip("Optional. Shows e.g. '+34 tickets' on a win.")]
+
     public TextMeshProUGUI ticketRewardText;
 
     [Header("Level Transition")]
-    [Tooltip("Exact scene name (as it appears in Build Settings) to load when this level is won. Set per-level in the Inspector - not tied to build order, so it stays correct once a level-select menu lets players jump around.")]
+
     public string nextSceneName;
 
-    [Tooltip("Seconds to show the Win text before moving on to the next scene.")]
+
     public float winDelay = 1.5f;
 
-    [Tooltip("Exact scene name of the Lose screen scene (as it appears in Build Settings). Loaded when the player loses.")]
+
     public string loseSceneName;
 
-    [Tooltip("Seconds to show the Lose text (if assigned) before moving to the Lose screen.")]
+
     public float loseDelay = 1.5f;
 
     private PlayerCharacter playerCharacter;
@@ -109,7 +107,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // this would be where progress is tracked
+        // progress track
         if (fillImage.fillAmount >= 1f)
         {
             levelOver = true;
@@ -123,7 +121,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // boss fights run on a timer instead of (or alongside) shape progress -
+
         // running out of time means the player succumbs before finishing the shape
         if (isBossLevel && currentBoss != null)
         {
@@ -137,7 +135,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Winning pays tickets: a base amount plus a bonus for every unused bullet
+    // Winning earns more tickets per bullet remaining
     private void AwardWinTickets()
     {
         int bulletsLeft = playerCharacter != null ? Mathf.Max(0, Mathf.FloorToInt(playerCharacter.bulletCount)) : 0;
@@ -157,8 +155,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Beating a boss level unlocks that boss's collectible (Boss.maskReward).
-    // Losing, or a non-boss level, awards nothing.
+
     private void AwardBossCollectible()
     {
         if (!isBossLevel || currentBoss == null || currentBoss.maskReward == null)
@@ -184,13 +181,13 @@ public class GameManager : MonoBehaviour
 
     public void TriggerLose()
     {
-        // guard so a second call (e.g. from another script) can't start a second scene load
+
         if (loseTriggered)
         {
             return;
         }
 
-        // a level that was already won can't be lost afterwards (e.g. bullets hitting 0 right as the shape finishes)
+
         if (playerCharacter != null && playerCharacter.win)
         {
             return;
@@ -198,7 +195,7 @@ public class GameManager : MonoBehaviour
         loseTriggered = true;
         levelOver = true;
 
-        // the on-screen "You lost!" text is now optional - the Lose screen scene takes over
+
         if (loseText != null)
         {
             loseText.gameObject.SetActive(true);

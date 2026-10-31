@@ -7,9 +7,6 @@ using Unity.VisualScripting;
 using TMPro;
 
 
-// this script manages bullet count, every time you click the bullet count goes down, and if it reaches zero it calls TriggerLose in game manager
-// bullet count for each level can be changed in inspector for the scene, in player character on main camera
-
 public class PlayerCharacter : MonoBehaviour
 {
 
@@ -37,7 +34,7 @@ public class PlayerCharacter : MonoBehaviour
     private float startingBullets;
     private float outOfAmmoTimer = 0f;
 
-    // How many shots have been fired this level (the ability buttons lock once this is above 0)
+    
     public int ShotsFired => Mathf.RoundToInt(startingBullets - bulletCount);
 
 
@@ -54,7 +51,7 @@ public class PlayerCharacter : MonoBehaviour
         // Starting health
 
         paperCollider = Paper.GetComponent<BoxCollider2D>();
-        // GameManager is usually on a different object than the camera, so GetComponent<GameManager>() found nothing
+        
         gameManager = FindAnyObjectByType<GameManager>();
         startingBullets = bulletCount;
         bulletCountText.text = "Bullets: " + bulletCount;
@@ -63,7 +60,7 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
-        // Decrease health over time in bosss fights
+        
         if (interactAction.triggered)
         {
             tapPosition = Camera.main.ScreenToWorldPoint(positionAction.ReadValue<Vector2>());
