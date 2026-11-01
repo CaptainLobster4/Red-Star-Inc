@@ -679,6 +679,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1251558304978465373, guid: d00a03302bacda442897984f55a443b2, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685175461169367489, guid: d00a03302bacda442897984f55a443b2, type: 3}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3919308759274630216, guid: d00a03302bacda442897984f55a443b2, type: 3}
       propertyPath: targetCollider
       value: 
@@ -686,6 +694,10 @@ PrefabInstance:
     - target: {fileID: 4796124391135308658, guid: d00a03302bacda442897984f55a443b2, type: 3}
       propertyPath: m_Name
       value: MetalStack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5819609474086542203, guid: d00a03302bacda442897984f55a443b2, type: 3}
+      propertyPath: maxHealth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8734445595912971382, guid: d00a03302bacda442897984f55a443b2, type: 3}
       propertyPath: m_LocalPosition.x
