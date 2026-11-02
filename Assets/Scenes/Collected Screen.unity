@@ -2200,6 +2200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectionScreen
   collectibles:
   - {fileID: 11400000, guid: 7344fc38ec2d8e84ab600129fede656b, type: 2}
+  - {fileID: 11400000, guid: 73fa4eb09ff9de440a0fdced557b73c7, type: 2}
   slotContainer: {fileID: 395817257}
   slotPrefab: {fileID: 3277185894998340308, guid: 55c8611e8154b30458d17366746c6bcd, type: 3}
   lockedSprite: {fileID: 0}

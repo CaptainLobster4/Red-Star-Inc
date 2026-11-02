@@ -211,6 +211,7 @@ MonoBehaviour:
   isBossLevel: 0
   currentBoss: {fileID: 533914937}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 11400000, guid: 73fa4eb09ff9de440a0fdced557b73c7, type: 2}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
@@ -1227,7 +1228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &681219856
 SpriteRenderer:
   serializedVersion: 3

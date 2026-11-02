@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI collectibleUnlockedText;
 
+    [Header("Level Collectible Reward")]
+    public CollectibleData levelReward;
+
     [Header("Win Reward")]
 
     public int winTicketsBase = 20;
@@ -158,7 +161,17 @@ public class GameManager : MonoBehaviour
 
     private void AwardBossCollectible()
     {
-        if (!isBossLevel || currentBoss == null || currentBoss.maskReward == null)
+        if (isBossLevel && currentBoss != null)
+        {
+            UnlockCollectible(currentBoss.maskReward);
+        }
+
+        UnlockCollectible(levelReward);
+    }
+
+    private void UnlockCollectible(CollectibleData collectible)
+    {
+        if (collectible == null)
         {
             return;
         }
@@ -169,12 +182,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        bool firstTime = !CollectibleManager.Instance.IsUnlocked(currentBoss.maskReward);
-        CollectibleManager.Instance.Unlock(currentBoss.maskReward);
+        bool firstTime = !CollectibleManager.Instance.IsUnlocked(collectible);
+        CollectibleManager.Instance.Unlock(collectible);
 
         if (firstTime && collectibleUnlockedText != null)
         {
-            collectibleUnlockedText.text = "New collectible: " + currentBoss.maskReward.collectibleName;
+            collectibleUnlockedText.text = "New collectible: " + collectible.collectibleName;
             collectibleUnlockedText.gameObject.SetActive(true);
         }
     }
