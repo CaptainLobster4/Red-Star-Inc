@@ -208,9 +208,10 @@ MonoBehaviour:
   BulletText: {fileID: 0}
   bulletCount: 0
   shapeAmount: 30
-  isBossLevel: 0
+  isBossLevel: 1
   currentBoss: {fileID: 2136109277}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 11400000, guid: 7344fc38ec2d8e84ab600129fede656b, type: 2}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
@@ -1845,7 +1846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.044555563, y: 0.05684376}
   m_AnchorMax: {x: 0.11400001, y: 0.48279685}
-  m_AnchoredPosition: {x: -4.909729, y: -20.830994}
+  m_AnchoredPosition: {x: -4.909729, y: -20.831055}
   m_SizeDelta: {x: 9.819397, y: -12.999023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890891049

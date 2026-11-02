@@ -283,13 +283,14 @@ MonoBehaviour:
   BulletText: {fileID: 0}
   bulletCount: 0
   shapeAmount: 30
-  isBossLevel: 0
+  isBossLevel: 1
   currentBoss: {fileID: 2136109277}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 0}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
-  nextSceneName: Tier 1 Boss Win Screen
+  nextSceneName: Repeat Win Screen
   winDelay: 1.5
   loseSceneName: Lose Screen
   loseDelay: 1.5
@@ -1394,6 +1395,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 956218526844570512, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2411306694003147295, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3310325
@@ -1454,13 +1459,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3270905683316227178, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7965605742782442516, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7965605742782442516, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413690471177675292, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413690471177675292, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8737905100272242674, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Name
@@ -1475,9 +1492,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: targetCollider
+      value: 
+      objectReference: {fileID: 1014797072}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: metalLayers.Array.size
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 771074466}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 771074465}
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: 'metalLayers.Array.data[2]'
       value: 
@@ -1502,6 +1531,28 @@ PrefabInstance:
 --- !u!114 &771074464 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1170770998719745804, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+  m_PrefabInstance: {fileID: 771074463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217e92a3747644c4dac1238cb41a9dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &771074465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1389861599991663978, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+  m_PrefabInstance: {fileID: 771074463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217e92a3747644c4dac1238cb41a9dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &771074466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1724114942346093085, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
   m_PrefabInstance: {fileID: 771074463}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

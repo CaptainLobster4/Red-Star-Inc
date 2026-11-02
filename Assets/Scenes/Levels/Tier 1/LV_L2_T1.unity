@@ -211,6 +211,7 @@ MonoBehaviour:
   isBossLevel: 0
   currentBoss: {fileID: 0}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 0}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 625022947}
@@ -2085,7 +2086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.044555563, y: 0.05684376}
   m_AnchorMax: {x: 0.11400001, y: 0.48279685}
-  m_AnchoredPosition: {x: -4.909729, y: -20.830994}
+  m_AnchoredPosition: {x: -4.909729, y: -20.831055}
   m_SizeDelta: {x: 9.819397, y: -12.999023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1030910155
@@ -2789,8 +2790,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2673132361431937481, guid: 034353cff774a4444b491505848aeac4, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -7416155457213024392, guid: 883204681fb5bb94ea0175c4c27d2964, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3412,7 +3413,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0

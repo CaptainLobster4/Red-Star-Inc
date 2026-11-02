@@ -272,6 +272,7 @@ MonoBehaviour:
   isBossLevel: 0
   currentBoss: {fileID: 0}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 0}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
@@ -3869,6 +3870,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2042054489}
     m_Modifications:
+    - target: {fileID: 956218526844570512, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2411306694003147295, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3310325
@@ -3925,6 +3930,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3270905683316227178, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965605742782442516, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413690471177675292, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8737905100272242674, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Name
       value: MetalStack
@@ -3939,8 +3956,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: metalLayers.Array.size
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3149300380037730097}
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: 'metalLayers.Array.data[2]'
       value: 
@@ -3969,6 +3990,62 @@ PrefabInstance:
       propertyPath: 'metalLayers.Array.data[8]'
       value: 
       objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[9]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[10]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[11]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[12]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[13]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[14]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[15]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[16]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[17]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[18]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[19]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[20]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[21]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[22]'
+      value: 
+      objectReference: {fileID: 3149300380037730096}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3977,6 +4054,17 @@ PrefabInstance:
 --- !u!114 &3149300380037730096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1170770998719745804, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+  m_PrefabInstance: {fileID: 3149300380037730095}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217e92a3747644c4dac1238cb41a9dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &3149300380037730097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1724114942346093085, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
   m_PrefabInstance: {fileID: 3149300380037730095}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

@@ -58,7 +58,7 @@ SpriteRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b4cd9aef4cffa174295d35a6b0700439, type: 2}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_MaskInteraction: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -112,7 +112,7 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: -1
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -170,10 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e2d518a89756a40b7e050b8d549c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletHole1
-  baseProgress: 0.05
-  duckshotScalePerLevel: 0.3
-  duckshotProgressPerLevel: 0.2
-  doubleshotProgressMultiplier: 2
+  baseProgress: 0.08
+  duckshotScalePerLevel: 0.11
+  duckshotProgressPerLevel: 0.13
+  doubleshotProgressMultiplier: 1.5
   DoubleShotBulletHole: {fileID: 4660533273157339134, guid: 76d12d76dffee994484c848533387fe2, type: 3}
   metalL: {fileID: 0}
   notOnPaper: 0

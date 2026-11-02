@@ -211,6 +211,7 @@ MonoBehaviour:
   isBossLevel: 1
   currentBoss: {fileID: 2136109277}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 11400000, guid: 73fa4eb09ff9de440a0fdced557b73c7, type: 2}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
@@ -1622,6 +1623,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 956218526844570512, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2411306694003147295, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3310325
@@ -1682,13 +1687,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3270905683316227178, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7965605742782442516, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7965605742782442516, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413690471177675292, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413690471177675292, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8737905100272242674, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: m_Name
@@ -1705,11 +1722,15 @@ PrefabInstance:
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: targetCollider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1014797072}
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: metalLayers.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+      propertyPath: 'metalLayers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 771074464}
     - target: {fileID: 9189392245150938386, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
       propertyPath: 'metalLayers.Array.data[2]'
       value: 
@@ -1727,6 +1748,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+--- !u!114 &771074464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5545859871324500153, guid: 57e52a37566c857439604e0f7f72ca86, type: 3}
+  m_PrefabInstance: {fileID: 771074463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 217e92a3747644c4dac1238cb41a9dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &774851184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4351,7 +4383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Boss
   bossType: 0
   fightDuration: 15
-  maskReward: {fileID: 11400000, guid: 7344fc38ec2d8e84ab600129fede656b, type: 2}
+  maskReward: {fileID: 11400000, guid: 73fa4eb09ff9de440a0fdced557b73c7, type: 2}
   timeRemaining: 0
 --- !u!212 &2136109278
 SpriteRenderer:
