@@ -182,6 +182,7 @@ MonoBehaviour:
   isBossLevel: 0
   currentBoss: {fileID: 0}
   collectibleUnlockedText: {fileID: 0}
+  levelReward: {fileID: 11400000, guid: 73fa4eb09ff9de440a0fdced557b73c7, type: 2}
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
