@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8238070163850237909}
   - component: {fileID: 3229650841789109487}
   m_Layer: 0
-  m_Name: RainbowSheet
+  m_Name: RainbowSheet 1
   m_TagString: MetalLayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

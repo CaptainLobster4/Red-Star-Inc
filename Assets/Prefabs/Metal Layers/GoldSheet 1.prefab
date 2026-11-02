@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8238070163850237909}
   - component: {fileID: 3229650841789109487}
   m_Layer: 0
-  m_Name: TitaniumSheet
+  m_Name: GoldSheet 1
   m_TagString: MetalLayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7014059782292796626, guid: db0f30b38425db54083b65070dd914ef, type: 3}
+  m_Sprite: {fileID: -8847375896155001934, guid: b933907c9082c3545ba9f94ccbb58c3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,14 +106,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217e92a3747644c4dac1238cb41a9dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 10
+  maxHealth: 6
   health: 3
   targetCollider: {fileID: 0}
   spriteRenderer: {fileID: 8412160775492283756}
   metalSprites:
-  - {fileID: 7014059782292796626, guid: db0f30b38425db54083b65070dd914ef, type: 3}
-  - {fileID: -864550177127942402, guid: e367e5f753c863246b9c462e013c2250, type: 3}
-  - {fileID: -2483891663297091541, guid: 9bcf0113a8ebdeb49ab157e14f72c594, type: 3}
+  - {fileID: -8847375896155001934, guid: b933907c9082c3545ba9f94ccbb58c3b, type: 3}
+  - {fileID: 3537701891118071080, guid: 698c24e79e7cc1c42900cb98cd285358, type: 3}
+  - {fileID: -5426274621009494591, guid: 8a25587f590aaa84fbb6962b9ca82fb1, type: 3}
   metalPing:
     Guid:
       Data1: 1672727067

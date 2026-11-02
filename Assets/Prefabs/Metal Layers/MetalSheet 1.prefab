@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8412160775492283756}
   - component: {fileID: 8238070163850237909}
   - component: {fileID: 3229650841789109487}
+  - component: {fileID: 1804481251583287654}
   m_Layer: 0
-  m_Name: GoldSheet
+  m_Name: MetalSheet 1
   m_TagString: MetalLayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8847375896155001934, guid: b933907c9082c3545ba9f94ccbb58c3b, type: 3}
+  m_Sprite: {fileID: -7569498069845926359, guid: 11ed243231fa1bc4cbdc0bba8b26944a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,14 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217e92a3747644c4dac1238cb41a9dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  maxHealth: 6
+  maxHealth: 3
   health: 3
   targetCollider: {fileID: 0}
   spriteRenderer: {fileID: 8412160775492283756}
   metalSprites:
-  - {fileID: -8847375896155001934, guid: b933907c9082c3545ba9f94ccbb58c3b, type: 3}
-  - {fileID: 3537701891118071080, guid: 698c24e79e7cc1c42900cb98cd285358, type: 3}
-  - {fileID: -5426274621009494591, guid: 8a25587f590aaa84fbb6962b9ca82fb1, type: 3}
+  - {fileID: -7569498069845926359, guid: 11ed243231fa1bc4cbdc0bba8b26944a, type: 3}
+  - {fileID: 8299093627101759365, guid: add559ea65390c648b2e2e5bc37c7338, type: 3}
+  - {fileID: -9195140093690520839, guid: 91baa680435e8e04196598b6cddf3374, type: 3}
   metalPing:
     Guid:
       Data1: 1672727067
@@ -181,3 +182,34 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 1
+--- !u!114 &1804481251583287654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537096053061354520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1672727067
+      Data2: 1251850827
+      Data3: 1047916951
+      Data4: 584083629
+    Path: event:/SFX/Mechanics/Shot blocked
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
