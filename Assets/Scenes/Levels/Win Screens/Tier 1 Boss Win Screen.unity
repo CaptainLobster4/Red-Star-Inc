@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 510310042}
   - component: {fileID: 510310041}
   m_Layer: 0
-  m_Name: Main Menu
+  m_Name: Next Tier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f13663d0bc05e41a9c340c8d7ec8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoadButton
-  sceneName: Main Menu
+  sceneName: LV_L1_T2
 --- !u!4 &510310042
 Transform:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU WIN
+  m_text: Tier Complete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff58fdf45bd8c1b4abe7bfab95d14bd4, type: 2}
   m_sharedMaterial: {fileID: 1193563386166231303, guid: ff58fdf45bd8c1b4abe7bfab95d14bd4, type: 2}
@@ -623,8 +623,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 158.2
-  m_fontSizeBase: 158.2
+  m_fontSize: 90.3
+  m_fontSizeBase: 90.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Next Tier
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff58fdf45bd8c1b4abe7bfab95d14bd4, type: 2}
   m_sharedMaterial: {fileID: 1193563386166231303, guid: ff58fdf45bd8c1b4abe7bfab95d14bd4, type: 2}
