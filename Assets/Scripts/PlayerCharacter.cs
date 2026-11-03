@@ -54,7 +54,7 @@ public class PlayerCharacter : MonoBehaviour
         
         gameManager = FindAnyObjectByType<GameManager>();
         startingBullets = bulletCount;
-        bulletCountText.text = "Bullets: " + bulletCount;
+        bulletCountText.text = "AMMO-" + bulletCount;
 
     }
 
@@ -101,7 +101,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void UpdateBulletCountText(float bulletCount)
     {
-        bulletCountText.text = "Bullets: " + bulletCount;
+        bulletCountText.text = "AMMO-" + bulletCount;
     }
 
 
