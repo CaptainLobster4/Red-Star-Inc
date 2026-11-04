@@ -54,7 +54,7 @@ public class PlayerCharacter : MonoBehaviour
         
         gameManager = FindAnyObjectByType<GameManager>();
         startingBullets = bulletCount;
-        bulletCountText.text = "AMMO-" + bulletCount;
+        UpdateBulletCountText(bulletCount);
 
     }
 
@@ -101,7 +101,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void UpdateBulletCountText(float bulletCount)
     {
-        bulletCountText.text = "AMMO-" + bulletCount;
+        bulletCountText.text = "AMMO-" + Mathf.Max(0, Mathf.RoundToInt(bulletCount)).ToString("00");
     }
 
 
