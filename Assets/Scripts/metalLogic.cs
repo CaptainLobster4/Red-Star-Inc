@@ -1,7 +1,5 @@
 using UnityEngine;
 using FMODUnity;
-using Unity.VisualScripting;
-
 public class metalLogic : MonoBehaviour
 {
     public int maxHealth = 3;
@@ -9,6 +7,9 @@ public class metalLogic : MonoBehaviour
     public Collider2D targetCollider;
     public SpriteRenderer spriteRenderer;
     public Sprite[] metalSprites;
+
+    [Header("Metal Stack")]
+    [SerializeField] private MetalStack metalStack;
 
     [Header("Metal Sound Effects")]
     [SerializeField] private EventReference metalPing;
@@ -18,7 +19,11 @@ public class metalLogic : MonoBehaviour
     {
         health = maxHealth;
 
-        targetCollider.enabled = false;
+        if (metalStack == null && targetCollider != null)
+        {
+            targetCollider.enabled = false;
+        }
+        
 
         //Sets starting sprite
         spriteRenderer.sprite = metalSprites[0];
@@ -37,7 +42,17 @@ public class metalLogic : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            targetCollider.enabled = true;
+            if (metalStack != null)
+            {
+                metalStack.MetalLayerBroken();
+            }
+            else
+            {
+                if (targetCollider != null)
+                {
+                    targetCollider.enabled = true;
+                }
+            }
 
             RuntimeManager.PlayOneShot(metalBreak, transform.position);
 
