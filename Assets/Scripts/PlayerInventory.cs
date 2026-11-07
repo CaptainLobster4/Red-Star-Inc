@@ -4,17 +4,12 @@ using UnityEngine;
 public enum AbilityType
 {
     Duckshot,
-    DoubleShot   // 2nd purchasable ability
+    DoubleShot,  // 2nd purchasable ability
+    ExtraAmmo    // permanent upgrade: more bullets every level (always on, not a toggle)
 }
 
-// Static save layer so tickets + upgrades survive scene loads
-// (game scene <-> shop scene) and app restarts. Not a MonoBehaviour: nothing to attach.
-//
 // Abilities are PERMANENT, stackable upgrades (roguelike style):
 //   - Each purchase raises the ability's level by 1 (level 0 = not owned).
-//   - Levels are saved and never expire; they carry into every level.
-//   - Each owned ability can be switched ON/OFF before a round (default ON).
-//   - Gameplay scripts check IsActive() (owned AND switched on) and GetLevel() for strength.
 public static class PlayerInventory
 {
     private const string TicketsKey = "Tickets";
@@ -36,7 +31,7 @@ public static class PlayerInventory
         SetTickets(Tickets + amount);
     }
 
-    // Returns false (and changes nothing) if the player can't afford it
+    // Returns false if the player can't afford it
     public static bool TrySpendTickets(int cost)
     {
         if (cost < 0 || Tickets < cost) return false;
@@ -59,13 +54,11 @@ public static class PlayerInventory
         return PlayerPrefs.GetInt(AbilityLevelKey + ability, 0);
     }
 
-    // Owned at any level (what the shop and the in-level buttons check)
     public static bool HasAbility(AbilityType ability)
     {
         return GetLevel(ability) > 0;
     }
 
-    // The player's on/off switch. Defaults to ON.
     public static bool IsEnabled(AbilityType ability)
     {
         return PlayerPrefs.GetInt(AbilityEnabledKey + ability, 1) == 1;
@@ -78,14 +71,12 @@ public static class PlayerInventory
         OnAbilitiesChanged?.Invoke();
     }
 
-    // Working right now: owned AND switched on (what gameplay scripts should check)
+    // Working right now
     public static bool IsActive(AbilityType ability)
     {
         return HasAbility(ability) && IsEnabled(ability);
     }
 
-    // Spends tickets and raises the ability one level (buying it the first time = level 1).
-    // maxLevel <= 0 means no cap. Returns false if at max level or the player can't afford it.
     public static bool TryUpgrade(AbilityType ability, int cost, int maxLevel)
     {
         int level = GetLevel(ability);
@@ -102,8 +93,7 @@ public static class PlayerInventory
         return true;
     }
 
-    // ---------- Legacy (kept so older scripts still compile; they do nothing now) ----------
-    // The one-round ability system was replaced by permanent upgrades.
+    // ---------- Legacy (kept so older scripts still compile; they do nothing now) 
 
     public static void BeginRound() { }
     public static void EndRound() { }

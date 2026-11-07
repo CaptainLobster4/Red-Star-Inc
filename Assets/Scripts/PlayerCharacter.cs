@@ -31,10 +31,13 @@ public class PlayerCharacter : MonoBehaviour
     [Tooltip("After the last bullet is fired, seconds to wait for it to land before the level is lost (so the last shot can still win).")]
     public float outOfAmmoDelay = 0.75f;
 
+    [Tooltip("Extra bullets given per Extra Ammo level bought in the shop.")]
+    public int bonusBulletsPerLevel = 5;
+
     private float startingBullets;
     private float outOfAmmoTimer = 0f;
 
-    
+
     public int ShotsFired => Mathf.RoundToInt(startingBullets - bulletCount);
 
 
@@ -50,17 +53,19 @@ public class PlayerCharacter : MonoBehaviour
     {
         // Starting health
 
-        paperCollider = Paper.GetComponent<BoxCollider2D>();
-        
+        paperCollider = Paper != null ? Paper.GetComponent<BoxCollider2D>() : null;
+
         gameManager = FindAnyObjectByType<GameManager>();
+        // Extra Ammo upgrade from the shop: permanent bonus bullets on every level
+        bulletCount += bonusBulletsPerLevel * PlayerInventory.GetLevel(AbilityType.ExtraAmmo);
         startingBullets = bulletCount;
-        UpdateBulletCountText(bulletCount);
+        bulletCountText.text = "Bullets: " + bulletCount;
 
     }
 
     void Update()
     {
-        
+
         if (interactAction.triggered)
         {
             tapPosition = Camera.main.ScreenToWorldPoint(positionAction.ReadValue<Vector2>());
@@ -68,7 +73,12 @@ public class PlayerCharacter : MonoBehaviour
             if (win == false && lose == false)
             {
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
-                if (paperCollider.bounds.Contains(tapPosition))
+            
+                // shots weren't showing because the paper is no longer here and it couldn't find the one thing it was meant to check for.
+                // With no paper the bullets weren't counting as valid and would still progress bar but not appear.
+                bool paperPresent = paperCollider != null && paperCollider.enabled && paperCollider.gameObject.activeInHierarchy;
+
+                if (!paperPresent || paperCollider.OverlapPoint(tapPosition))
                 {
                     //Debug.Log("on paper");
                 }
@@ -101,7 +111,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void UpdateBulletCountText(float bulletCount)
     {
-        bulletCountText.text = "AMMO-" + Mathf.Max(0, Mathf.RoundToInt(bulletCount)).ToString("00");
+        bulletCountText.text = "Bullets: " + bulletCount;
     }
 
 
