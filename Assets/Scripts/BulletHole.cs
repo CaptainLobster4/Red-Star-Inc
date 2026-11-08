@@ -31,6 +31,19 @@ public class BulletHole : MonoBehaviour
     private bool overlapping = false;
     private bool hitTarget = false;
 
+    [Header("One Shot = One Score")]
+    [Tooltip("A moving or spinning target keeps re-entering this hole's trigger. Progress only counts once per bullet, and only if the target is under the hole within this many seconds of the shot.")]
+    [SerializeField] private float scoreWindow = 0.15f;
+
+    private float spawnTime;
+    private bool hasScored = false;
+
+    [Header("Stick To Target")]
+    [Tooltip("When a bullet lands on the target, the hole becomes a child of it and moves, spins and slides with it.")]
+    [SerializeField] private bool stickToTarget = true;
+
+    private Transform pendingParent; // set in the trigger callback, applied in Update
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,6 +51,16 @@ public class BulletHole : MonoBehaviour
         if (collision.gameObject == targetArea)
         {
             if (gameManager == null) return;
+
+            // Already scored, or the target only drifted under this hole after the shot: no more progress
+            if (hasScored || Time.time - spawnTime > scoreWindow) return;
+            hasScored = true;
+
+            if (stickToTarget)
+            {
+                pendingParent = collision.transform;
+            }
+
             hitTarget = true;
             gameManager.shapeAmount = gameManager.DecreaseSideAmount(gameManager.shapeAmount);
         }
@@ -81,6 +104,7 @@ public class BulletHole : MonoBehaviour
     {
         // this was for the prototype but stuck, can later be changed to be set in inspector, as it's not always a triangle
         targetArea = GameObject.Find("TriangleArea");
+        spawnTime = Time.time;
         gameManager = FindAnyObjectByType<GameManager>();
 
 
@@ -110,6 +134,17 @@ public class BulletHole : MonoBehaviour
 
     private void Update()
     {
+        // Stick to the target it hit (done here and not in the physics callback; true keeps the hole's world position)
+        if (pendingParent != null)
+        {
+            transform.SetParent(pendingParent, true);
+            if (doubleShotInstance != null)
+            {
+                doubleShotInstance.transform.SetParent(pendingParent, true);
+            }
+            pendingParent = null;
+        }
+
         // if not on paper (which is set from player character script), then set invisible (so the other logic still runs, but the bullet hole does not appear) 
         if (notOnPaper)
         {
