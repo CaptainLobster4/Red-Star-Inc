@@ -1,33 +1,45 @@
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for changing scenes
-using UnityEngine.UI;              // Required for handling UI elements
 
-public class SceneImageManager : MonoBehaviour
+// Goes on any object in a level (or the shop) that has the ability sidebar.
+// Each entry is one ability and the image/icon object that shows it is active.
+// An image is shown while its ability is ACTIVE (owned AND switched on), and hidden otherwise,
+// so any number of abilities can be showing at the same time.
+// It reads PlayerInventory directly, so there is no button or flag to set.
+public class AbilityIndicatorBar : MonoBehaviour
 {
-    // A static variable retains its value across different scene changes
-    public static bool shouldShowImage = false;
-
-    [Header("Shop Screen References")]
-    public GameObject imageToActivate;
-
-    private void Start()
+    [Serializable]
+    public class Indicator
     {
-        // When Scene 1 loads, check if the static flag is true
-        if (imageToActivate != null)
-        {
-            imageToActivate.SetActive(shouldShowImage);
+        public AbilityType ability;
 
-            shouldShowImage = false;
-        }
+        [Tooltip("The image (or any object) shown while this ability is active.")]
+        public GameObject image;
     }
 
-    // Call this function from your Button in Scene 2
-    public void ClickButtonInScene2()
-    {
-        // Set the flag to true so Scene 1 knows to show the image
-        shouldShowImage = true;
+    [SerializeField] private Indicator[] indicators;
 
-        // Load Scene 1 (Make sure the scene name matches exactly)
-        SceneManager.LoadScene("Shop Screen");
+    private void OnEnable()
+    {
+        PlayerInventory.OnAbilitiesChanged += Refresh;
+        Refresh();
+    }
+
+    private void OnDisable()
+    {
+        PlayerInventory.OnAbilitiesChanged -= Refresh;
+    }
+
+    private void Refresh()
+    {
+        if (indicators == null) return;
+
+        foreach (Indicator indicator in indicators)
+        {
+            if (indicator.image != null)
+            {
+                indicator.image.SetActive(PlayerInventory.IsActive(indicator.ability));
+            }
+        }
     }
 }

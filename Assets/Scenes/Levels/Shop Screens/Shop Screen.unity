@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464d917c25bb35040b0be88e26edaf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  imageToActivate: {fileID: 0}
+  indicators: []
 --- !u!4 &1303260802
 Transform:
   m_ObjectHideFlags: 0

@@ -344,6 +344,7 @@ MonoBehaviour:
   bulletCount: 30
   bulletCountText: {fileID: 167462901}
   outOfAmmoDelay: 0.75
+  bonusBulletsPerLevel: 5
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,7 +1885,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464d917c25bb35040b0be88e26edaf0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneImageManager
-  imageToActivate: {fileID: 2030667963}
+  indicators:
+  - ability: 0
+    image: {fileID: 2030667963}
+  - ability: 1
+    image: {fileID: 1903831545}
+  - ability: 2
+    image: {fileID: 0}
 --- !u!4 &774851186
 Transform:
   m_ObjectHideFlags: 0
