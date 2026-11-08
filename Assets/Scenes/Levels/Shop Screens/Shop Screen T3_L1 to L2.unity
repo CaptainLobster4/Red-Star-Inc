@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f13663d0bc05e41a9c340c8d7ec8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoadButton
-  sceneName: Tier 1 Levl 1 Win Screen
+  sceneName: Tier 3 Levl 1 Win Screen
 --- !u!4 &216580596
 Transform:
   m_ObjectHideFlags: 0

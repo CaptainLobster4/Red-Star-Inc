@@ -110,5 +110,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Win Screens/Tier 3 Boss Win Screen 1.unity
     guid: 4b4e72e82d589664299b72f24c1b290b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Win Screens/Tier 4 Levl 1 Win Screen.unity
+    guid: e8681312d2e7e8647b14fbcfa8a9fed6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Win Screens/Tier 4 Levl 2 Win Screen.unity
+    guid: a20c09c6cf474e0448b2d0436927ae6d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Shop Screens/Shop Screen T4_L1 to L2.unity
+    guid: 1ef08fe7ba0c9744e95613fc7765fbd5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Shop Screens/Shop Screen T4_Preboss 1.unity
+    guid: 35b0dece4d9b1c943b2bbd68aa00d5d6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

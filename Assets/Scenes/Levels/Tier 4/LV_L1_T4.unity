@@ -432,7 +432,7 @@ MonoBehaviour:
   winTicketsBase: 20
   ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
-  nextSceneName: Tier 3 Levl 1 Win Screen
+  nextSceneName: Tier 4 Levl 1 Win Screen
   winDelay: 1.5
   loseSceneName: Lose Screen
   loseDelay: 1.5
@@ -486,6 +486,7 @@ MonoBehaviour:
   bulletCount: 25
   bulletCountText: {fileID: 881119832}
   outOfAmmoDelay: 0.75
+  bonusBulletsPerLevel: 5
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0
