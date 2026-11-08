@@ -541,6 +541,7 @@ MonoBehaviour:
   bulletCount: 25
   bulletCountText: {fileID: 2045302544}
   outOfAmmoDelay: 0.75
+  bonusBulletsPerLevel: 2
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0

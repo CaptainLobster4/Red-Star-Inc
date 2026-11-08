@@ -20,8 +20,11 @@ MonoBehaviour:
     rid: 6000544381463953409
   m_ActivePlatformGuid: 
   m_AdditionalPlatformBuildSettings: []
-  m_OverrideGlobalSceneList: 0
-  m_Scenes: []
+  m_OverrideGlobalSceneList: 1
+  m_Scenes:
+  - m_enabled: 0
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 2 Boss Win Screen.unity
+    m_guid: 4b509ab431523e84d91d750891863d54
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

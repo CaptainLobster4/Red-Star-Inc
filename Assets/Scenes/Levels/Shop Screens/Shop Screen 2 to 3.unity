@@ -388,7 +388,7 @@ MonoBehaviour:
     costIncreasePerLevel: 10
     maxLevel: 5
     available: 1
-    button: {fileID: 0}
+    button: {fileID: 1167143326}
     nameLabel: {fileID: 0}
     buttonLabel: {fileID: 0}
   - ability: 1
@@ -397,7 +397,16 @@ MonoBehaviour:
     costIncreasePerLevel: 0
     maxLevel: 1
     available: 1
-    button: {fileID: 0}
+    button: {fileID: 1003180532}
+    nameLabel: {fileID: 0}
+    buttonLabel: {fileID: 0}
+  - ability: 2
+    displayName: 
+    cost: 60
+    costIncreasePerLevel: 5
+    maxLevel: 10
+    available: 1
+    button: {fileID: 1767805675}
     nameLabel: {fileID: 0}
     buttonLabel: {fileID: 0}
   messageText: {fileID: 0}
@@ -577,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coming_Soon
+  m_text: 60 Tickets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
   m_sharedMaterial: {fileID: -7645862801537732414, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
