@@ -265,8 +265,7 @@ MonoBehaviour:
   currentBoss: {fileID: 0}
   collectibleUnlockedText: {fileID: 0}
   levelReward: {fileID: 0}
-  winTicketsBase: 20
-  ticketsPerBulletLeft: 2
+  winTicketsBase: 40
   ticketRewardText: {fileID: 0}
   nextSceneName: Tier 2 Level 2 Win Screen
   winDelay: 1.5
@@ -322,7 +321,7 @@ MonoBehaviour:
   bulletCount: 25
   bulletCountText: {fileID: 1345286243}
   outOfAmmoDelay: 0.75
-  bonusBulletsPerLevel: 5
+  minimumLevelBullets: 5
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0
