@@ -213,7 +213,6 @@ MonoBehaviour:
   collectibleUnlockedText: {fileID: 0}
   levelReward: {fileID: 11400000, guid: 73fa4eb09ff9de440a0fdced557b73c7, type: 2}
   winTicketsBase: 20
-  ticketsPerBulletLeft: 2
   ticketRewardText: {fileID: 0}
   nextSceneName: Tier 2 Boss Win Screen
   winDelay: 1.5
@@ -269,7 +268,7 @@ MonoBehaviour:
   bulletCount: 25
   bulletCountText: {fileID: 1330101406}
   outOfAmmoDelay: 0.75
-  bonusBulletsPerLevel: 5
+  minimumLevelBullets: 5
 --- !u!114 &144996829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,7 +2784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7022884558154076834, guid: a15bbf6970c345a4085a89888eace53e, type: 3}
+  m_Sprite: {fileID: -7050576088100165143, guid: 7a4cae14275cd9544b6a2736ac52d80a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3338,7 +3337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7022884558154076834, guid: a15bbf6970c345a4085a89888eace53e, type: 3}
+  m_Sprite: {fileID: -7050576088100165143, guid: 7a4cae14275cd9544b6a2736ac52d80a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3623,7 +3622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7022884558154076834, guid: a15bbf6970c345a4085a89888eace53e, type: 3}
+  m_Sprite: {fileID: -7050576088100165143, guid: 7a4cae14275cd9544b6a2736ac52d80a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
