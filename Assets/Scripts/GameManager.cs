@@ -33,10 +33,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Win Reward")]
 
-    public int winTicketsBase = 20;
-
-
-    public int ticketsPerBulletLeft = 2;
+    public int winTicketsBase = 40;
 
 
     public TextMeshProUGUI ticketRewardText;
@@ -138,11 +135,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Winning earns more tickets per bullet remaining
+    // Winning pays a flat amount (set per level in the Inspector)
     private void AwardWinTickets()
     {
-        int bulletsLeft = playerCharacter != null ? Mathf.Max(0, Mathf.FloorToInt(playerCharacter.bulletCount)) : 0;
-        int reward = winTicketsBase + ticketsPerBulletLeft * bulletsLeft;
+        int reward = winTicketsBase;
 
         if (reward <= 0)
         {
