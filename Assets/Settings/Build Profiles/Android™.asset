@@ -22,9 +22,120 @@ MonoBehaviour:
   m_AdditionalPlatformBuildSettings: []
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 0
+  - m_enabled: 1
+    m_path: Assets/Scenes/Main Menu.unity
+    m_guid: f5591fba3fa18534ab5943eb57742374
+  - m_enabled: 1
+    m_path: Assets/Scenes/Lose Screen.unity
+    m_guid: b54594290f662614387181e78d43e570
+  - m_enabled: 1
+    m_path: Assets/Scenes/Collected Screen.unity
+    m_guid: 71b6ffc31897b494ab857158ff71c618
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 1/LV_L1_T1.unity
+    m_guid: c51ac691edfe8ec4080cbb80bce60f71
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 1/LV_L2_T1.unity
+    m_guid: 24bb78fc683c64d4f959a0efbce68269
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 2/LV_L1_T2.unity
+    m_guid: 75eaf5f541ef84f4a9445c3bc62d6543
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 2/LV_L2_T2.unity
+    m_guid: c7106bd933f292b42a5d448c44f54fc6
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 3/LV_L1_T3.unity
+    m_guid: 77c913eaf594bf8469d16bf7e03e6238
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 3/LV_L2_T3.unity
+    m_guid: 01bde328f1b0e854c97b93667a732f66
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 4/LV_L1_T4.unity
+    m_guid: 64eb71ba7386e434e9cab9fd8833e8ef
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Tier 4/LV_L2_T4.unity
+    m_guid: eb15ec8c22b60db4b9e335c8b0229c5f
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 1 Boss Win Screen.unity
+    m_guid: beb08b3f50a6b814290b34629e122251
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 1 Level 2 Win Screen.unity
+    m_guid: 56421d9eb5fe9554e8cd6f074ec32bfb
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 1 Levl 1 Win Screen.unity
+    m_guid: 85ea713d243185046a5f8f715106cc19
+  - m_enabled: 1
     m_path: Assets/Scenes/Levels/Win Screens/Tier 2 Boss Win Screen.unity
     m_guid: 4b509ab431523e84d91d750891863d54
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 2 Level 2 Win Screen.unity
+    m_guid: 04ebcfcbb07c1c94fad2154755cca0d3
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 2 Level 3 Win Screen 1.unity
+    m_guid: d15bb6666f79d1a448cd55b0ca4559f3
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 2 Levl 1 Win Screen 1.unity
+    m_guid: e24e55e798c75ad43a8415ddc453112d
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 3 Boss Win Screen.unity
+    m_guid: 4b4e72e82d589664299b72f24c1b290b
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 3 Level 2 Win Screen.unity
+    m_guid: 625b9f28e4a97ec4e9ec8e6f77898709
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 3 Levl 1 Win Screen.unity
+    m_guid: 66d0efb5492b4e74695a63a6ce623c72
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 4 Boss Win Screen 2.unity
+    m_guid: 5eccd6476dd74214587490884f3bbb12
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 4 Levl 1 Win Screen.unity
+    m_guid: e8681312d2e7e8647b14fbcfa8a9fed6
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Win Screens/Tier 4 Levl 2 Win Screen.unity
+    m_guid: a20c09c6cf474e0448b2d0436927ae6d
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen.unity
+    m_guid: 9b509bdda2d6d994abbdef1998fb41a7
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen 2 to 3.unity
+    m_guid: b772f80ad5382bb4c8018fcb363b4645
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T1 to T2.unity
+    m_guid: 32adcba36c7a7ab4e9d0382b215f1f45
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T4_Preboss 1.unity
+    m_guid: 35b0dece4d9b1c943b2bbd68aa00d5d6
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T4_L1 to L2.unity
+    m_guid: 1ef08fe7ba0c9744e95613fc7765fbd5
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T3_Preboss.unity
+    m_guid: b8340adafe34eb5458bec11c6de58729
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T3_L1 to L2.unity
+    m_guid: 747430bfa97550a46b5a48a459771d10
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T2_Preboss.unity
+    m_guid: 9bcf1f4ae41dda244a1369e4a4cf7bd8
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T2_L1 to L2.unity
+    m_guid: 69b350d5a38b13b4e8ac6110c3e65365
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Shop Screens/Shop Screen T2 to T3.unity
+    m_guid: 0b7d6ac66a7e3a94bbf6ae3874a0ec9b
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Bosses/LV_Boss_T4.unity
+    m_guid: 7bcb8df1130454a41b49823be87345fd
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Bosses/LV_Boss_T3.unity
+    m_guid: 28d1f0475fe03da439317ee76c694db0
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Bosses/LV_Boss_T2.unity
+    m_guid: 3790a5116a604ef4ba28727c1a16e0e6
+  - m_enabled: 1
+    m_path: Assets/Scenes/Levels/Bosses/LV_Boss_T1.unity
+    m_guid: 7c2ff1f4caf7ca64e86b7c5041b73919
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
