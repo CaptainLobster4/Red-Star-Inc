@@ -586,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60 Tickets
+  m_text: 60_Tickets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
   m_sharedMaterial: {fileID: -7645862801537732414, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
@@ -1192,9 +1192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1 Ticket 1 Bullet
-
-'
+  m_text: "1_Ticket \n1_Bullet\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
   m_sharedMaterial: {fileID: -7645862801537732414, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
@@ -2146,7 +2144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151.00006, y: 30.999939}
+  m_AnchoredPosition: {x: -151.00006, y: -162.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2063032417
