@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f13663d0bc05e41a9c340c8d7ec8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoadButton
-  sceneName: Shop Screen
+  sceneName: Shop Screen T3_Boss
 --- !u!4 &1502244976
 Transform:
   m_ObjectHideFlags: 0
