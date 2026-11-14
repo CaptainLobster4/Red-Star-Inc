@@ -843,7 +843,7 @@ MonoBehaviour:
     button: {fileID: 955817046}
     nameLabel: {fileID: 0}
     buttonLabel: {fileID: 0}
-  messageText: {fileID: 1808737292}
+  messageText: {fileID: 0}
   ticketCounterText: {fileID: 1808737292}
 --- !u!114 &374883985
 MonoBehaviour:
