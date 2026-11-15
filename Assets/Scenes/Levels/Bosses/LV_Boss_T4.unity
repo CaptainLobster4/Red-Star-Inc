@@ -3773,6 +3773,7 @@ GameObject:
   - component: {fileID: 1716643452}
   - component: {fileID: 1716643454}
   - component: {fileID: 1716643453}
+  - component: {fileID: 1716643455}
   m_Layer: 5
   m_Name: AmmoCanniister
   m_TagString: Untagged
@@ -3841,6 +3842,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716643451}
   m_CullTransparentMesh: 1
+--- !u!114 &1716643455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716643451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b66d72c07926745b103766ecfd401c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoMeterDisplay
+  fills:
+  - {fileID: 786047181}
+  smoothSpeed: 6
 --- !u!1 &1725750981
 GameObject:
   m_ObjectHideFlags: 0

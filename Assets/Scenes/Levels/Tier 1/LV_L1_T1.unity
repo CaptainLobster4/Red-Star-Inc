@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 523374315}
   - component: {fileID: 523374314}
   m_Layer: 5
-  m_Name: Ammometer
+  m_Name: AmmoMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1904,7 +1904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.228}
   m_AnchorMin: {x: 0.7511318, y: 0.5}
   m_AnchorMax: {x: 0.9578159, y: 1}
-  m_AnchoredPosition: {x: -6.8, y: -6.5}
+  m_AnchoredPosition: {x: -6.8000183, y: -6.5}
   m_SizeDelta: {x: 18.24826, y: 94.289}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &945013633
@@ -2037,7 +2037,7 @@ GameObject:
   - component: {fileID: 1012634544}
   - component: {fileID: 1012634543}
   m_Layer: 5
-  m_Name: AmmoCanniister (1)
+  m_Name: AmmoCannister (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2116,8 +2116,9 @@ GameObject:
   - component: {fileID: 1117463003}
   - component: {fileID: 1117463005}
   - component: {fileID: 1117463004}
+  - component: {fileID: 1117463006}
   m_Layer: 5
-  m_Name: AmmoCanniister
+  m_Name: AmmoCannister
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2184,6 +2185,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117463002}
   m_CullTransparentMesh: 1
+--- !u!114 &1117463006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117463002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b66d72c07926745b103766ecfd401c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoMeterDisplay
+  fills:
+  - {fileID: 523374314}
+  smoothSpeed: 6
 --- !u!1 &1213390642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,7 +2909,7 @@ GameObject:
   - component: {fileID: 1446887092}
   - component: {fileID: 1446887091}
   m_Layer: 5
-  m_Name: AmmoCanniister (3)
+  m_Name: AmmoCannister (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2915,7 +2931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.044555563, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.025, y: 12.6712}
+  m_AnchoredPosition: {x: -2.0250015, y: 12.671143}
   m_SizeDelta: {x: 3.0444, y: -8.6973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446887091
@@ -4138,7 +4154,7 @@ GameObject:
   - component: {fileID: 2043095623}
   - component: {fileID: 2043095622}
   m_Layer: 5
-  m_Name: AmmoCanniister (2)
+  m_Name: AmmoCannister (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
