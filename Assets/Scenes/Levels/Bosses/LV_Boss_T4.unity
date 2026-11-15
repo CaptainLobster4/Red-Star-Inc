@@ -3484,6 +3484,7 @@ GameObject:
   - component: {fileID: 1545376870}
   - component: {fileID: 1545376869}
   - component: {fileID: 1545376873}
+  - component: {fileID: 1545376874}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3602,6 +3603,21 @@ MonoBehaviour:
   boss: {fileID: 0}
   lowTimeThreshold: 5
   lowTimeColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1545376874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545376868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b66d72c07926745b103766ecfd401c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoMeterDisplay
+  fills:
+  - {fileID: 786047181}
+  smoothSpeed: 6
 --- !u!1 &1614744541
 GameObject:
   m_ObjectHideFlags: 0
