@@ -8,16 +8,10 @@ public enum AudioChannel
     SFX
 }
 
-// Player volume settings, saved on the device and applied to the FMOD buses.
-// Not a MonoBehaviour: nothing to attach. The saved volumes are applied automatically when the game starts.
-//
-// IMPORTANT: the bus paths below must match the buses in your FMOD Studio project
-// (FMOD Studio > Mixer window > the bus names). "bus:/" is the Master bus.
-// Anything that should follow a slider must be routed to that bus in FMOD Studio, and the banks rebuilt.
+
 public static class GameAudio
 {
-    // Bus names from the FMOD project (found with FmodBusLister).
-    // Music slider = MX. SFX slider = SFX plus UI (button clicks). Master = the master bus.
+    
     public static string[] GetBusPaths(AudioChannel channel)
     {
         switch (channel)
@@ -37,7 +31,7 @@ public static class GameAudio
         return PlayerPrefs.GetFloat(KeyPrefix + channel, 1f);
     }
 
-    // Changes the volume right away and remembers it. Call Save() when the player is done (the menu does).
+    
     public static void SetVolume(AudioChannel channel, float volume)
     {
         volume = Mathf.Clamp01(volume);
@@ -59,7 +53,7 @@ public static class GameAudio
         Save();
     }
 
-    // Applies every saved volume to FMOD (done once at start, after FMOD has loaded its banks)
+    
     public static void ApplyAll()
     {
         foreach (AudioChannel channel in System.Enum.GetValues(typeof(AudioChannel)))
@@ -88,7 +82,7 @@ public static class GameAudio
         }
     }
 
-    // Starts a small helper that waits for FMOD's banks to load, then applies the saved volumes
+    // Applies the volumes saved by Fmod on load
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void ApplySavedVolumesOnStart()
     {
