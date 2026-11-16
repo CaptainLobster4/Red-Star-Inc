@@ -2326,12 +2326,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5103371, y: -0.006249629}
-      - {x: 0.25581574, y: 0.435375}
-      - {x: -0.25684312, y: 0.4489372}
-      - {x: -0.49610853, y: -0.008474201}
-      - {x: -0.26218006, y: -0.44190967}
-      - {x: 0.26650625, y: -0.44432917}
+    - - {x: 0.7026732, y: 0.083460525}
+      - {x: 2.5029554, y: 0.07606715}
+      - {x: 2.4928088, y: 1.0803173}
+      - {x: 0.70917916, y: 1.1017942}
+      - {x: 0.6941091, y: 2.5957656}
+      - {x: -0.6983551, y: 2.5836835}
+      - {x: -0.6827301, y: 1.1538035}
+      - {x: -2.4203467, y: 1.1753235}
+      - {x: -2.4487722, y: 0.08807176}
+      - {x: -0.7021828, y: 0.06842033}
+      - {x: -0.7018053, y: -2.6462188}
+      - {x: 0.6649165, y: -2.6358223}
   m_UseDelaunayMesh: 1
 --- !u!212 &1014797073
 SpriteRenderer:
@@ -2382,7 +2388,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 0.33333334}
   m_FlipX: 0
   m_FlipY: 0
@@ -2390,7 +2396,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1 &1020680359
@@ -4712,8 +4718,8 @@ Transform:
   m_GameObject: {fileID: 2136109274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0033709398, z: 0}
-  m_LocalScale: {x: 0.70433706, y: 0.6741725, z: 0.57142854}
+  m_LocalPosition: {x: -0.02, y: -0.05, z: -0}
+  m_LocalScale: {x: 0.16469218, y: 0.16898009, z: 0.57142854}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1014797071}
@@ -4804,7 +4810,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 8482712648628362555, guid: 63858d09493e5964b96a326b10289861, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
