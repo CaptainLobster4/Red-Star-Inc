@@ -66,7 +66,7 @@ public class PlayerCharacter : MonoBehaviour
         }
         bulletCount = pool;
         startingBullets = bulletCount;
-        bulletCountText.text = "Bullets: " + bulletCount;
+        UpdateBulletCountText(bulletCount);
 
     }
 
@@ -119,7 +119,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private void UpdateBulletCountText(float bulletCount)
     {
-        bulletCountText.text = "Bullets: " + bulletCount;
+        int displayedBulletCount = Mathf.Max(0, Mathf.RoundToInt(bulletCount));
+        bulletCountText.text = "Ammo-" + displayedBulletCount.ToString("D2");
     }
 
 
