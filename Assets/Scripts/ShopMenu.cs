@@ -37,6 +37,8 @@ public class ShopMenu : MonoBehaviour
     [Tooltip("Optional text for feedback like 'Not enough tickets'")]
     [SerializeField] private TextMeshProUGUI messageText;
 
+    [SerializeField] private TextMeshProUGUI ticketCounterText;
+   
     private void Start()
     {
         foreach (AbilitySlot slot in abilities)
@@ -102,6 +104,11 @@ public class ShopMenu : MonoBehaviour
 
     private void RefreshAll()
     {
+        if (ticketCounterText != null)
+        {
+            ticketCounterText.text = "Tickets: " + PlayerInventory.Tickets;
+        }
+
         if (abilities == null) return;
 
         foreach (AbilitySlot slot in abilities)
