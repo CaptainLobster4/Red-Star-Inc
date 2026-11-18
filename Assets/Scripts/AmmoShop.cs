@@ -61,7 +61,7 @@ public class AmmoShop : MonoBehaviour
     {
         if (ammoText != null)
         {
-            ammoText.text = "Ammo: " + PlayerInventory.Ammo + " / " + PlayerInventory.MaxAmmo;
+            ammoText.text = "AMMO\n" + PlayerInventory.Ammo.ToString("D2") + " / " + PlayerInventory.MaxAmmo.ToString("D2");
         }
     }
 

@@ -427,7 +427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151, y: 31}
+  m_AnchoredPosition: {x: -151, y: -210.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &216580594
@@ -902,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.78700006, y: 0.006}
   m_AnchorMax: {x: 0.9724063, y: 0.083000004}
-  m_AnchoredPosition: {x: 840.1329, y: -1782.7936}
+  m_AnchoredPosition: {x: 761.1, y: -1391}
   m_SizeDelta: {x: 175.67764, y: 147.271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510522023
@@ -1347,7 +1347,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AMMO-00
+  m_text: 'AMMO
+
+    00 / 50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 887a8533902c9874bb99304c03a31353, type: 2}
   m_sharedMaterial: {fileID: 648760524034354319, guid: 887a8533902c9874bb99304c03a31353, type: 2}
@@ -1530,7 +1532,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1 Ticket 1 Bullet
+  m_text: '1_Ticket
+
+    1_Bullet
 
 '
   m_isRightToLeft: 0
@@ -2504,7 +2508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60 Tickets
+  m_text: 60_Tickets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
   m_sharedMaterial: {fileID: -7645862801537732414, guid: 702b0d3c03c2f9041adb1346751dc166, type: 2}
