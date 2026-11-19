@@ -31,7 +31,7 @@ namespace FMODUnity
             set { EventStopTrigger = value; }
         }
         public bool AllowFadeout = true;
-        public bool TriggerOnce = false;
+        public bool TriggerOnce = true;
         public bool Preload = false;
         [FormerlySerializedAs("AllowNonRigidbodyDoppler")]
         public bool NonRigidbodyVelocity = false;
@@ -44,7 +44,7 @@ namespace FMODUnity
 
         protected FMOD.Studio.EventInstance instance;
 
-        private bool hasTriggered = false;
+        private bool hasTriggered = true;
         private bool isQuitting = false;
         private bool isOneshot = false;
         private List<ParamRef> cachedParams = new List<ParamRef>();

@@ -3717,7 +3717,7 @@ MonoBehaviour:
       Data4: 1525784557
     Path: event:/MX/System/Menu loop
   Event: 
-  EventPlayTrigger: 1
+  EventPlayTrigger: 0
   EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0

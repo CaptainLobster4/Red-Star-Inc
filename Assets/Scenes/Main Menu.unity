@@ -4487,28 +4487,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1362428025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: eb6f81e8ad4e4f24fba8a3049d460af3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentMusicManager
+  menuMusicEvent:
     Guid:
       Data1: -82196779
       Data2: 1239684728
       Data3: -1244117091
       Data4: 1525784557
     Path: event:/MX/System/Menu loop
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1388212200
 GameObject:
   m_ObjectHideFlags: 0
