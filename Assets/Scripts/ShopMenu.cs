@@ -30,6 +30,8 @@ public class ShopMenu : MonoBehaviour
         public Button button;
         public TextMeshProUGUI nameLabel;   // optional - shows the name and current level
         public TextMeshProUGUI buttonLabel; // text on the button
+
+        public TextMeshProUGUI costText; // the text that shows the cost of the upgrade
     }
 
     [SerializeField] private AbilitySlot[] abilities;
@@ -99,6 +101,8 @@ public class ShopMenu : MonoBehaviour
             ShowMessage("Not enough tickets");
         }
 
+        Debug.Log("pressed");
+
         RefreshAll();
     }
 
@@ -114,6 +118,8 @@ public class ShopMenu : MonoBehaviour
         foreach (AbilitySlot slot in abilities)
         {
             int level = PlayerInventory.GetLevel(slot.ability);
+
+            UpdateCostText(slot);
 
             if (slot.nameLabel != null)
             {
@@ -148,6 +154,8 @@ public class ShopMenu : MonoBehaviour
                 slot.buttonLabel.text = "Upgrade (" + NextCost(slot) + ")";
             }
         }
+
+
     }
 
     private void ShowMessage(string message)
@@ -156,6 +164,14 @@ public class ShopMenu : MonoBehaviour
         {
             messageText.text = message;
         }
+    }
+
+    private void UpdateCostText(AbilitySlot slot)
+    {
+        // update the cost of the abilities 
+
+        slot.costText.text = NextCost(slot) + "_tickets";
+
     }
 
     // Hook the shop's Back button to this
