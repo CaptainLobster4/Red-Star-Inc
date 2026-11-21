@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -40,7 +41,12 @@ public class ShopMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageText;
 
     [SerializeField] private TextMeshProUGUI ticketCounterText;
-   
+
+    private float messageDisplayTime = 3f;
+
+    private Coroutine clearCoroutine;
+
+
     private void Start()
     {
         foreach (AbilitySlot slot in abilities)
@@ -94,14 +100,20 @@ public class ShopMenu : MonoBehaviour
         }
         else if (PlayerInventory.TryUpgrade(slot.ability, NextCost(slot), slot.maxLevel))
         {
-            ShowMessage(slot.displayName + " is now level " + PlayerInventory.GetLevel(slot.ability) + "!");
+            if (PlayerInventory.GetLevel(slot.ability) == slot.maxLevel)
+            {
+                ShowMessage(slot.displayName + " is now max level!");
+
+            }
+            else
+            {
+                ShowMessage(slot.displayName + " is now level " + PlayerInventory.GetLevel(slot.ability) + "!");
+            }
         }
         else
         {
             ShowMessage("Not enough tickets");
         }
-
-        Debug.Log("pressed");
 
         RefreshAll();
     }
@@ -155,7 +167,6 @@ public class ShopMenu : MonoBehaviour
             }
         }
 
-
     }
 
     private void ShowMessage(string message)
@@ -164,13 +175,34 @@ public class ShopMenu : MonoBehaviour
         {
             messageText.text = message;
         }
+
+        if (clearCoroutine != null)
+        {
+            StopCoroutine(clearCoroutine);
+        }
+
+        clearCoroutine = StartCoroutine(ClearMessageAfterTime());
+
+    }
+
+    private IEnumerator ClearMessageAfterTime()
+    {
+        yield return new WaitForSeconds(messageDisplayTime);
+        messageText.text = "";
+        clearCoroutine = null;
     }
 
     private void UpdateCostText(AbilitySlot slot)
     {
         // update the cost of the abilities 
-
-        slot.costText.text = NextCost(slot) + "_tickets";
+        if (PlayerInventory.GetLevel(slot.ability) == slot.maxLevel)
+        {
+            slot.costText.text = "";
+        }
+        else
+        {
+            slot.costText.text = NextCost(slot) + "_tickets";
+        }
 
     }
 
