@@ -30,34 +30,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "b29a0291-758b-46e4-b212-e33096ebd039",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Tap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "342329c0-486b-4677-85c4-8142df884c75",
                     "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
                     "action": "Tap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "67f399b1-df6c-4f73-8149-ed6cc79d0980",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Position",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

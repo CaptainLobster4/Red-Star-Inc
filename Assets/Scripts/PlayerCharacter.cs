@@ -106,15 +106,9 @@ public class PlayerCharacter : MonoBehaviour
             EnableInput();
         }
 
-        if (interactAction.triggered)
+        if (TryGetTap(out Vector2 screenTapPosition))
         {
-            if (Camera.main == null)
-            {
-                Debug.LogError("PlayerCharacter: no camera tagged MainCamera in scene '" + gameObject.scene.name + "', so taps can't be placed.", this);
-                return;
-            }
-
-            tapPosition = Camera.main.ScreenToWorldPoint(positionAction.ReadValue<Vector2>());
+            tapPosition = Camera.main.ScreenToWorldPoint(screenTapPosition);
 
             if ((win || lose) && !loggedIgnoredTap)
             {
@@ -173,6 +167,34 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
+
+
+    private bool TryGetTap(out Vector2 screenPosition)
+    {
+        screenPosition = Vector2.zero;
+
+        Touchscreen touchscreen = Touchscreen.current;
+        if (touchscreen != null)
+        {
+            foreach (var touch in touchscreen.touches)
+            {
+                if (touch.press.wasPressedThisFrame)
+                {
+                    screenPosition = touch.position.ReadValue();
+                    return true;
+                }
+            }
+        }
+
+        Mouse mouse = Mouse.current;
+        if (mouse != null && mouse.leftButton.wasPressedThisFrame)
+        {
+            screenPosition = mouse.position.ReadValue();
+            return true;
+        }
+
+        return false;
+    }
 
     private void UpdateBulletCountText(float bulletCount)
     {
