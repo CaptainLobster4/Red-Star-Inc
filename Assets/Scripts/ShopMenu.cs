@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,6 +31,8 @@ public class ShopMenu : MonoBehaviour
         public Button button;
         public TextMeshProUGUI nameLabel;   // optional - shows the name and current level
         public TextMeshProUGUI buttonLabel; // text on the button
+
+        public TextMeshProUGUI costText; // the text that shows the cost of the upgrade
     }
 
     [SerializeField] private AbilitySlot[] abilities;
@@ -38,7 +41,12 @@ public class ShopMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageText;
 
     [SerializeField] private TextMeshProUGUI ticketCounterText;
-   
+
+    private float messageDisplayTime = 3f;
+
+    private Coroutine clearCoroutine;
+
+
     private void Start()
     {
         foreach (AbilitySlot slot in abilities)
@@ -92,7 +100,15 @@ public class ShopMenu : MonoBehaviour
         }
         else if (PlayerInventory.TryUpgrade(slot.ability, NextCost(slot), slot.maxLevel))
         {
-            ShowMessage(slot.displayName + " is now level " + PlayerInventory.GetLevel(slot.ability) + "!");
+            if (PlayerInventory.GetLevel(slot.ability) == slot.maxLevel)
+            {
+                ShowMessage(slot.displayName + " is now max level!");
+
+            }
+            else
+            {
+                ShowMessage(slot.displayName + " is now level " + PlayerInventory.GetLevel(slot.ability) + "!");
+            }
         }
         else
         {
@@ -114,6 +130,8 @@ public class ShopMenu : MonoBehaviour
         foreach (AbilitySlot slot in abilities)
         {
             int level = PlayerInventory.GetLevel(slot.ability);
+
+            UpdateCostText(slot);
 
             if (slot.nameLabel != null)
             {
@@ -148,6 +166,7 @@ public class ShopMenu : MonoBehaviour
                 slot.buttonLabel.text = "Upgrade (" + NextCost(slot) + ")";
             }
         }
+
     }
 
     private void ShowMessage(string message)
@@ -156,6 +175,35 @@ public class ShopMenu : MonoBehaviour
         {
             messageText.text = message;
         }
+
+        if (clearCoroutine != null)
+        {
+            StopCoroutine(clearCoroutine);
+        }
+
+        clearCoroutine = StartCoroutine(ClearMessageAfterTime());
+
+    }
+
+    private IEnumerator ClearMessageAfterTime()
+    {
+        yield return new WaitForSeconds(messageDisplayTime);
+        messageText.text = "";
+        clearCoroutine = null;
+    }
+
+    private void UpdateCostText(AbilitySlot slot)
+    {
+        // update the cost of the abilities 
+        if (PlayerInventory.GetLevel(slot.ability) == slot.maxLevel)
+        {
+            slot.costText.text = "";
+        }
+        else
+        {
+            slot.costText.text = NextCost(slot) + "_tickets";
+        }
+
     }
 
     // Hook the shop's Back button to this
