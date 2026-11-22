@@ -117,7 +117,14 @@ public class PlayerCharacter : MonoBehaviour
     }
 
 
+<<<<<<< Updated upstream
    
+=======
+    // Reads taps straight from the devices instead of through the Tap/Position actions.
+    // The actions had the mouse AND the touchscreen bound at once; when both were active (Simulator,
+    // or left+right click together) the action could get stuck or read a stale position.
+    // At most one tap per frame. Touch is checked first, then the mouse's LEFT button only.
+>>>>>>> Stashed changes
     private bool TryGetTap(out Vector2 screenPosition)
     {
         screenPosition = Vector2.zero;
