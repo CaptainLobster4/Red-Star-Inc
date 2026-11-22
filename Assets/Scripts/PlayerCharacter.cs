@@ -42,11 +42,32 @@ public class PlayerCharacter : MonoBehaviour
     public int ShotsFired => Mathf.RoundToInt(startingBullets - bulletCount);
 
 
+    private bool loggedIgnoredTap = false;
+    private bool loggedActionsOff = false;
+
     private void Awake()
     {
+        if (inputActions == null)
+        {
+            Debug.LogError("PlayerCharacter: Input Actions isn't assigned on " + name + " in scene '" + gameObject.scene.name + "', so shooting can't work.", this);
+            return;
+        }
+
         interactAction = inputActions.FindAction("Tap");
         positionAction = inputActions.FindAction("Position");
+    }
 
+    private void OnEnable()
+    {
+        EnableInput();
+    }
+
+    // The Input Actions asset is shared between scenes. If anything switched its actions off
+    // (for example an old scene shutting down after this one started), taps would silently stop working.
+    private void EnableInput()
+    {
+        if (interactAction != null && !interactAction.enabled) interactAction.Enable();
+        if (positionAction != null && !positionAction.enabled) positionAction.Enable();
     }
 
 
@@ -72,12 +93,36 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
+        if (interactAction == null || positionAction == null) return;
+
+        if (!interactAction.enabled || !positionAction.enabled)
+        {
+            if (!loggedActionsOff)
+            {
+                loggedActionsOff = true;
+                Debug.LogWarning("PlayerCharacter: the Tap/Position input actions were switched off by something else. Turning them back on.", this);
+            }
+            EnableInput();
+        }
 
         if (interactAction.triggered)
         {
+            if (Camera.main == null)
+            {
+                Debug.LogError("PlayerCharacter: no camera tagged MainCamera in scene '" + gameObject.scene.name + "', so taps can't be placed.", this);
+                return;
+            }
+
             tapPosition = Camera.main.ScreenToWorldPoint(positionAction.ReadValue<Vector2>());
 
-            if (win == false && lose == false)
+            if ((win || lose) && !loggedIgnoredTap)
+            {
+                loggedIgnoredTap = true;
+                Debug.LogWarning("PlayerCharacter: tap ignored because win=" + win + " lose=" + lose + " (level is over). Ammo left: " + Mathf.RoundToInt(bulletCount), this);
+            }
+
+            // no bullets left: no more shots while the out-of-ammo timer runs down
+            if (win == false && lose == false && bulletCount >= 1)
             {
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
                 // Once the paper is gone (destroyed, switched off, or its collider disabled) its bounds collapse to
@@ -99,7 +144,10 @@ public class PlayerCharacter : MonoBehaviour
                 PlayerInventory.SetAmmo(Mathf.RoundToInt(bulletCount)); // spend it from the saved pool
                 UpdateBulletCountText(bulletCount);
 
-                RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
+                if (FMODEvents.instance != null)
+                {
+                    RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
+                }
             }
         }
 
@@ -119,6 +167,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private void UpdateBulletCountText(float bulletCount)
     {
+        if (bulletCountText == null) return;
+
         int displayedBulletCount = Mathf.Max(0, Mathf.RoundToInt(bulletCount));
         bulletCountText.text = "Ammo-" + displayedBulletCount.ToString("D2");
     }
