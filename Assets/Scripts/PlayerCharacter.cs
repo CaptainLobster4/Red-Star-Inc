@@ -25,14 +25,14 @@ public class PlayerCharacter : MonoBehaviour
 
     private GameManager gameManager;
 
-    [Tooltip("Filled in at the start of each level from the player's shared ammo (PlayerInventory). Whatever is typed here is ignored.")]
+    
     public float bulletCount = 30;
     public TextMeshProUGUI bulletCountText;
 
-    [Tooltip("After the last bullet is fired, seconds to wait for it to land before the level is lost (so the last shot can still win).")]
+    // how long before level ends after fail
     public float outOfAmmoDelay = 0.75f;
 
-    [Tooltip("Every level starts with at least this many bullets, even if the shared ammo is lower, so the player is never stuck with nothing. 0 = no safety net.")]
+    
     public int minimumLevelBullets = 5;
 
     private float startingBullets;
@@ -42,11 +42,33 @@ public class PlayerCharacter : MonoBehaviour
     public int ShotsFired => Mathf.RoundToInt(startingBullets - bulletCount);
 
 
+    // log for taps. did it tap, or did it not.
+    [SerializeField] private bool logTaps = true;
+
+    private bool loggedIgnoredTap = false;
+    private bool loggedActionsOff = false;
+
     private void Awake()
     {
+        if (inputActions == null)
+        {
+            Debug.LogError("PlayerCharacter: Input Actions isn't assigned on " + name + " in scene '" + gameObject.scene.name + "', so shooting can't work.", this);
+            return;
+        }
+
         interactAction = inputActions.FindAction("Tap");
         positionAction = inputActions.FindAction("Position");
+    }
 
+    private void OnEnable()
+    {
+        EnableInput();
+    }
+
+    private void EnableInput()
+    {
+        if (interactAction != null && !interactAction.enabled) interactAction.Enable();
+        if (positionAction != null && !positionAction.enabled) positionAction.Enable();
     }
 
 
@@ -57,7 +79,7 @@ public class PlayerCharacter : MonoBehaviour
         paperCollider = Paper != null ? Paper.GetComponent<BoxCollider2D>() : null;
 
         gameManager = FindAnyObjectByType<GameManager>();
-        // One shared ammo pool: bullets carry over between levels and are bought in the shop
+        
         int pool = PlayerInventory.Ammo;
         if (pool < minimumLevelBullets)
         {
@@ -72,22 +94,38 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
+        if (interactAction == null || positionAction == null) return;
+
+        if (!interactAction.enabled || !positionAction.enabled)
+        {
+            if (!loggedActionsOff)
+            {
+                loggedActionsOff = true;
+                Debug.LogWarning("PlayerCharacter: the Tap/Position input actions were switched off by something else. Turning them back on.", this);
+            }
+            EnableInput();
+        }
 
         if (TryGetTap(out Vector2 screenTapPosition))
         {
             tapPosition = Camera.main.ScreenToWorldPoint(screenTapPosition);
 
-            if (win == false && lose == false)
+            if ((win || lose) && !loggedIgnoredTap)
+            {
+                loggedIgnoredTap = true;
+                Debug.LogWarning("PlayerCharacter: tap ignored because win=" + win + " lose=" + lose + " (level is over). Ammo left: " + Mathf.RoundToInt(bulletCount), this);
+            }
+
+            // no bullets left: no more shots while the out-of-ammo timer runs down
+            if (win == false && lose == false && bulletCount >= 1)
             {
                 GameObject currentBullethole = Instantiate(BulletHole, tapPosition, Quaternion.identity);
-                // Once the paper is gone (destroyed, switched off, or its collider disabled) its bounds collapse to
-                // nothing, so every tap would count as "off the paper" and the hole would be hidden.
-                // With no paper there is nothing to be off of, so holes show wherever the player taps.
+                // if paper collider is gone, bullet holes stop appearing. 
                 bool paperPresent = paperCollider != null && paperCollider.enabled && paperCollider.gameObject.activeInHierarchy;
 
                 if (!paperPresent || paperCollider.OverlapPoint(tapPosition))
                 {
-                    //Debug.Log("on paper");
+                    //prints on paper for each successful shot
                 }
                 else
                 {
@@ -95,17 +133,30 @@ public class PlayerCharacter : MonoBehaviour
                     bulletScript.notOnPaper = true;
                 }
 
+                if (logTaps)
+                {
+                    string paperInfo = Paper == null ? "Paper slot EMPTY" : (paperPresent ? (paperCollider.OverlapPoint(tapPosition) ? "on paper" : "OFF paper (hole hidden)") : "paper collider off/missing (holes shown)");
+                    Debug.Log("Tap in '" + gameObject.scene.name + "': shot fired, ammo before=" + Mathf.RoundToInt(bulletCount) + ", " + paperInfo, this);
+                }
+
                 bulletCount = bulletCount - 1;
-                PlayerInventory.SetAmmo(Mathf.RoundToInt(bulletCount)); // spend it from the saved pool
+                PlayerInventory.SetAmmo(Mathf.RoundToInt(bulletCount)); 
                 UpdateBulletCountText(bulletCount);
 
-                RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
+                if (FMODEvents.instance != null)
+                {
+                    RuntimeManager.PlayOneShot(FMODEvents.instance.singleShot, transform.position);
+                }
+            }
+            else if (logTaps && win == false && lose == false)
+            {
+                Debug.LogWarning("Tap in '" + gameObject.scene.name + "': NO SHOT because bulletCount=" + bulletCount + " (shared ammo=" + PlayerInventory.Ammo + ").", this);
             }
         }
 
 
 
-        // out of bullets: wait a moment so the last shot can land (and still win), then lose
+        
         if (bulletCount <= 0 && win == false && lose == false)
         {
             outOfAmmoTimer += Time.deltaTime;
@@ -117,14 +168,7 @@ public class PlayerCharacter : MonoBehaviour
     }
 
 
-<<<<<<< Updated upstream
-   
-=======
-    // Reads taps straight from the devices instead of through the Tap/Position actions.
-    // The actions had the mouse AND the touchscreen bound at once; when both were active (Simulator,
-    // or left+right click together) the action could get stuck or read a stale position.
-    // At most one tap per frame. Touch is checked first, then the mouse's LEFT button only.
->>>>>>> Stashed changes
+
     private bool TryGetTap(out Vector2 screenPosition)
     {
         screenPosition = Vector2.zero;
@@ -154,6 +198,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private void UpdateBulletCountText(float bulletCount)
     {
+        if (bulletCountText == null) return;
+
         int displayedBulletCount = Mathf.Max(0, Mathf.RoundToInt(bulletCount));
         bulletCountText.text = "Ammo-" + displayedBulletCount.ToString("D2");
     }
